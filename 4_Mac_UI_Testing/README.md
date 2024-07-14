@@ -3,8 +3,6 @@
 
 Let's UI Test the Full Screen Notification macOS app.
 
-![Full Screen Notification using NSPanel](hero-full-screen.png)
-
 When testing apps you want to make your app accessible using `accessibilityIdentifiers`. You add identifiers so that the UX button text changes do not break your tests in the future.
 
 ## Add a UI Test Target
