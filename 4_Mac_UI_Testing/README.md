@@ -1,14 +1,9 @@
-# How to Make a Full Screen Notification on macOS with NSPanel
+# Introduction to UI Testing on macOS with XCTest
 2024-06-06
 
-Learn how you can create a Full Screen Notification on macOS using a NSPanel that floats above all other Full Screen apps and windows. You can use this technique to take over the entire screen or to just show a little toast animation in a corner.
-
-I use both AppKit (Cocoa) and SwiftUI to demo the notification message over the entire screen contents. Feel free to make adjustments to fit your needs.
+Let's UI Test the Full Screen Notification macOS app.
 
 ![Full Screen Notification using NSPanel](hero-full-screen.png)
-
-
-Learn how to write UI Tests on macOS with two UI Tests with supporting helper methods.
 
 When testing apps you want to make your app accessible using `accessibilityIdentifiers`. You add identifiers so that the UX button text changes do not break your tests in the future.
 
