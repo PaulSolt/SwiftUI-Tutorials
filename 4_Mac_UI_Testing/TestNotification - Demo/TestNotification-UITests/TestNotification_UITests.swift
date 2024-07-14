@@ -8,29 +8,51 @@
 import XCTest
 
 final class TestNotification_UITests: XCTestCase {
-    let app = XCUIApplication()
+    var app: XCUIApplication!
     
     override func setUpWithError() throws {
         continueAfterFailure = false
+        app = XCUIApplication()
         app.launch()
     }
-
+    
     func testNotificationDismissesOnTap() throws {
-        app.buttons["showNotification"].click()
+        let button = app.buttons["showNotification"]
         let notificationLabel = app.staticTexts["messageLabel"]
         
+        button.click()
         notificationLabel.click()
         
-        XCTAssert(notificationLabel.waitToDisappear(timeout: 3))
+        XCTAssertTrue(notificationLabel.waitToDisappear(timeout: 3))
+        //        XCTAssertTrue(notificationLabel.waitForNonExistence(withTimeout: 3)) // Xcode 16 Beta
     }
     
     func testClickThroughTransparentRegion() throws {
-        app.buttons["showNotification"].click()
-        let notificationLabel = app.staticTexts["messageLabel"]
+        showNotificationButton.click()
         XCTAssert(notificationLabel.exists)
 
         // Tap above notification label to verify we do not dismiss
         notificationLabel.tapNearby(CGVector(dx: 0, dy: -100))
+        
         XCTAssert(notificationLabel.exists)
     }
+    
+    var showNotificationButton: XCUIElement {
+        app.buttons["showNotification"]
+    }
+    
+    var notificationLabel: XCUIElement {
+        app.staticTexts["messageLabel"]
+    }
+
+//    func testClickThroughTransparentRegion() throws {
+//        app.buttons["showNotification"].click()
+//        let notificationLabel = app.staticTexts["messageLabel"]
+//        XCTAssert(notificationLabel.exists)
+//
+//        // Tap above notification label to verify we do not dismiss
+//        notificationLabel.tapNearby(CGVector(dx: 0, dy: -100))
+//        
+//        XCTAssert(notificationLabel.exists)
+//    }
 }

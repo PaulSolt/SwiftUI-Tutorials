@@ -5,6 +5,10 @@ Let's UI Test the Full Screen Notification macOS app.
 
 When testing apps you want to make your app accessible using `accessibilityIdentifiers`. You add identifiers so that the UX button text changes do not break your tests in the future.
 
+Learn how to write UI Tests on macOS with two UI Tests with supporting helper methods.
+
+When testing apps you want to make your app accessible using `accessibilityIdentifiers`. You add identifiers so that the UX button text changes do not break your tests in the future.
+
 ## Add a UI Test Target
 
 1. Add your UI Test Target
@@ -16,20 +20,35 @@ When testing apps you want to make your app accessible using `accessibilityIdent
 import XCTest
 
 final class TestNotification_UITests: XCTestCase {
-    let app = XCUIApplication()
+    var app: XCUIApplication!
     
     override func setUpWithError() throws {
         continueAfterFailure = false
+        app = XCUIApplication()
         app.launch()
     }
 }
 ```
 
-## Record Actions with a Breakpoint
+## Record Actions inside Test Methods
+
 
 ```swift
 func testNotificationDismissal() throws {
-    // TODO: Breakpoint to record actions
+	// Option 1: Select cursor inside body of a test method and press record
+	// Option 2: Alternate: Use breakpoint and then start recording
+}
+```
+
+Note: `@MainActor` may prevent you from being able to record during a breakpoint
+
+NOTE: It is hard to follow and it would be less brittle with identifiers that didn't change with text.
+
+```swift
+func testNotificationDismissal() {
+	let app = XCUIApplication()
+	app.windows["TestNotification.ContentView-1-AppWindow-1"].buttons["Show Full Screen Notification"].click()
+	app.staticTexts["This is a full screen notification"].click()
 }
 ```
 
@@ -51,6 +70,32 @@ Button("Show Full Screen Notification") {
 ```swift
 messageLabel.setAccessibilityIdentifier("messageLabel")
 ```
+
+
+## Clean Up with Variables and identifiers
+
+```swift
+func testNotificationDismissesOnTap() throws {
+    let button = app.buttons["showNotification"]
+    let notificationLabel = app.staticTexts["messageLabel"]
+    
+    button.click()
+    notificationLabel.click()
+
+	// TODO: Verify it worked
+    XCTAssert(notificationLabel.waitToDisappear(timeout: 3))
+}
+```
+
+# Xcode 16+
+
+> A new API on XCUIElement adds the ability to wait for any property on XCUIElement to become a value given a timeout. Also, `waitForNonExistence` has been added as a new API. (35419925)
+
+```swift
+wait(for:toEqual:timeout:)
+waitForNonExistence(withTimeout:)
+```
+
 
 ## Tap a Button - Add Identifiers
 
@@ -98,7 +143,23 @@ func waitToDisappear(timeout: TimeInterval) -> Bool {
 }
 ```
 
-## Test that Clicking Nearby Does not Dismiss
+## Finish the First Test
+
+```swift
+func testNotificationDismissesOnTap() throws {
+    let button = app.buttons["showNotification"]
+    let notificationLabel = app.staticTexts["messageLabel"]
+    
+    button.click()
+    notificationLabel.click()
+    
+    XCTAssertTrue(notificationLabel.waitToDisappear(timeout: 3))
+    //        XCTAssertTrue(notificationLabel.waitForNonExistence(withTimeout: 3)) // Xcode 16 Beta
+}
+```
+
+
+## 2nd Test: Test that Clicking Nearby Does not Dismiss
 
 ```swift
 func testClickThroughTransparentRegion() throws {
@@ -111,7 +172,7 @@ func testClickThroughTransparentRegion() throws {
 }
 ```
 
-## Implement XCUIElement Extensoin
+## Implement XCUIElement Extension
 
 ```swift
 func tapNearby(_ offset: CGVector) {
@@ -122,6 +183,8 @@ func tapNearby(_ offset: CGVector) {
 }
 ```
 
+## Add Test Condition
+
 ```swift
 func testClickThroughTransparentRegion() throws {
     app.buttons["showNotification"].click()
@@ -131,6 +194,32 @@ func testClickThroughTransparentRegion() throws {
     // Tap above notification label to verify we do not dismiss
     notificationLabel.tapNearby(CGVector(dx: 0, dy: -100))
 
+    XCTAssert(notificationLabel.exists)
+}
+```
+
+## Cleanup with Reusable Elements
+
+```swift
+var showNotificationButton: XCUIElement {
+    app.buttons["showNotification"]
+}
+
+var notificationLabel: XCUIElement {
+    app.staticTexts["messageLabel"]
+}
+```
+
+Updated Method:
+
+```swift
+func testClickThroughTransparentRegion() throws {
+    showNotificationButton.click()
+    XCTAssert(notificationLabel.exists)
+
+    // Tap above notification label to verify we do not dismiss
+    notificationLabel.tapNearby(CGVector(dx: 0, dy: -100))
+    
     XCTAssert(notificationLabel.exists)
 }
 ```

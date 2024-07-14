@@ -18,7 +18,7 @@ extension XCUIElement {
         let result = XCTWaiter().wait(for: [expectation], timeout: timeout)
         return result == .completed
     }
-    
+   
     func tapNearby(_ offset: CGVector) {
         // normalized at zero appears to be top left corner
         let normalized = coordinate(withNormalizedOffset: .zero)
@@ -30,6 +30,7 @@ extension XCUIElement {
 }
 
 extension XCTestCase {
+    
     // Based on: https://stackoverflow.com/a/42222302/276626
     func wait(for duration: TimeInterval) {
         let waitExpectation = expectation(description: "Waiting")
