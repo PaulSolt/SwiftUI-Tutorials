@@ -14,6 +14,7 @@ struct ContentView: View {
                 FullScreenNotification.showNotification()
             }
             .padding()
+            .accessibilityIdentifier("showNotification")
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
     }

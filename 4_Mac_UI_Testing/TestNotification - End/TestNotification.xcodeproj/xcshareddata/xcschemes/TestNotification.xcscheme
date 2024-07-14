@@ -41,6 +41,17 @@
                ReferencedContainer = "container:TestNotification.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO"
+            parallelizable = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "BDBDBA642C44318000EC1F78"
+               BuildableName = "TestNotificationUITests.xctest"
+               BlueprintName = "TestNotificationUITests"
+               ReferencedContainer = "container:TestNotification.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
