@@ -56,7 +56,6 @@ class FullScreenNotification: NSPanel {
         messageLabel.isSelectable = false   // NOTE: Do this to prevent touches from being swallowed from ClickGestures
         messageLabel.isBordered = false
         messageLabel.backgroundColor = .clear
-        messageLabel.setAccessibilityIdentifier("messageLabel") // TODO: Set accessibility identifiers
         
         // Create a container view for the message label
         let messageContainer = NSView()
