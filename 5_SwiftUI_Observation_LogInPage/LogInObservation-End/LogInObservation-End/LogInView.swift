@@ -7,57 +7,55 @@
 
 import SwiftUI
 
-import Observation // iOS 17
-
-@Observable class UserValidator {
-    var name = ""
-    var email = ""
-    var password = ""
-    
-    var isSubmitButtonDisabled: Bool {
-        name.isEmpty || password.count < 8 || !isValidEmail(string: email)
-    }
-    
-    func isValidEmail(string: String) -> Bool {
-        // https://www.hackingwithswift.com/swift/5.7/regexes
-        // https://www.regular-expressions.info/email.html
-        let emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/
-            .ignoresCase()
-        return !string.ranges(of: emailRegex).isEmpty
-    }
-}
-
 
 struct LogInView: View {
     @Bindable var userValidator: UserValidator
     
     var body: some View {
-        VStack {
-            TextField(text: $userValidator.name) {
-                Text("Name")
-            }
-            .autocorrectionDisabled()
-            .textInputAutocapitalization(.words)
+        VStack(spacing: 16) {
+            Text("Create Account")
+                .bold()
+                .padding(.bottom, 16)
             
-            TextField(text: $userValidator.email) {
-                Text("Email")
+            VStack(spacing: 16) {
+                Group {
+                    TextField(text: $userValidator.name) {
+                        Text("Name")
+                    }
+                    .autocorrectionDisabled()
+                    .textInputAutocapitalization(.words)
+                    
+                    TextField(text: $userValidator.email) {
+                        Text("Email")
+                    }
+                    .autocorrectionDisabled()
+                    .keyboardType(.emailAddress)
+                    
+                    SecureField(text: $userValidator.password) {
+                        Text("Password")
+                    }
+                }
+                //            .textFieldStyle(.roundedBorder)
+                .padding()
+                .background(.background) // Dark mode support
+                .clipShape(.rect(cornerRadius: 4))
             }
-            .autocorrectionDisabled()
-            .keyboardType(.emailAddress)
-            
-            SecureField(text: $userValidator.password) {
-                Text("Password")
-            }
-            
             Button {
                 print("Name: \(userValidator.name), Email: \(userValidator.email), Password: \(userValidator.password)")
             } label: {
                 Text("Create Account")
+                    .bold()
             }
             .disabled(userValidator.isSubmitButtonDisabled)
+            .padding(.top, 16)
+            .buttonStyle(.borderedProminent)
+            .keyboardShortcut(.defaultAction)
 
         }
-        .padding()
+        .padding(40)
+        .background(Color(UIColor.secondarySystemBackground))
+        .cornerRadius(4)
+        .padding(20)
     }
 }
 
