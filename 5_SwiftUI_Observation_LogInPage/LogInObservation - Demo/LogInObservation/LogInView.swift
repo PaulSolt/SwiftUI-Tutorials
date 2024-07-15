@@ -33,7 +33,9 @@ struct LogInView: View {
                         Text("Password")
                     }
                 }
+//                .textFieldStyle(.roundedBorder)
                 .padding()
+                .contentShape(Rectangle())
                 .background(.background)
                 .clipShape(.rect(cornerRadius: 4))
             }
