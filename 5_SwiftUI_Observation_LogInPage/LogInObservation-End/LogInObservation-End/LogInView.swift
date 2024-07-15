@@ -15,7 +15,7 @@ import Observation // iOS 17
     var password = ""
     
     var isSubmitButtonDisabled: Bool {
-        name.isEmpty || password.count < 8
+        name.isEmpty || password.count < 8 || !isValidEmail(string: email)
     }
     
     func isValidEmail(string: String) -> Bool {
@@ -38,6 +38,24 @@ struct LogInView: View {
             }
             .autocorrectionDisabled()
             .textInputAutocapitalization(.words)
+            
+            TextField(text: $userValidator.email) {
+                Text("Email")
+            }
+            .autocorrectionDisabled()
+            .keyboardType(.emailAddress)
+            
+            SecureField(text: $userValidator.password) {
+                Text("Password")
+            }
+            
+            Button {
+                print("Name: \(userValidator.name), Email: \(userValidator.email), Password: \(userValidator.password)")
+            } label: {
+                Text("Create Account")
+            }
+            .disabled(userValidator.isSubmitButtonDisabled)
+
         }
         .padding()
     }
