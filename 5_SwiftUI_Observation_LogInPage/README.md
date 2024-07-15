@@ -1,10 +1,12 @@
-# 2024-07-10 How to Use Observation and SwiftUI in iOS Apps (Validate Input)
+# 2024-07-15 SwiftUI Login Page with Email Validation and Observation
 
-How to Use Observation and SwiftUI - Validate User Account Creation
+"How do you make a SwiftUI app? In this video, I'll show you how to create a simple login screen with a model object using the new Observation framework, all in Xcode 16. Stay tuned to master this powerful tool and improve your app development!"
 
-How do you use the Observation framework? What do you need to keep in mind when transitioning from Combine?
+How do you create a Login Page or Login Screen? How should you structure your model objects? What is the new Observation framework? 
 
-Learn how to get started with a simple account creation screen:
+iOS 17 introduced the new Observation framework which moves away from Combine for ObservableObject and @Published properties to a new way of listening for changes that is more granular.
+
+Learn how to create an @Observable model object and connect it to your SwiftUI interface in Xcode 16.
 
 ## Prototype UserValidator Class
 
