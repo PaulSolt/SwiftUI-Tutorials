@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		BD9494D92C45B5B300F22241 /* LogInObservation_EndApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9494D82C45B5B300F22241 /* LogInObservation_EndApp.swift */; };
-		BD9494DB2C45B5B300F22241 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9494DA2C45B5B300F22241 /* ContentView.swift */; };
+		BD9494DB2C45B5B300F22241 /* LogInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9494DA2C45B5B300F22241 /* LogInView.swift */; };
 		BD9494DD2C45B5B500F22241 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD9494DC2C45B5B500F22241 /* Assets.xcassets */; };
 		BD9494E02C45B5B500F22241 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD9494DF2C45B5B500F22241 /* Preview Assets.xcassets */; };
 /* End PBXBuildFile section */
@@ -16,7 +16,7 @@
 /* Begin PBXFileReference section */
 		BD9494D52C45B5B300F22241 /* LogInObservation-End.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "LogInObservation-End.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD9494D82C45B5B300F22241 /* LogInObservation_EndApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInObservation_EndApp.swift; sourceTree = "<group>"; };
-		BD9494DA2C45B5B300F22241 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		BD9494DA2C45B5B300F22241 /* LogInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInView.swift; sourceTree = "<group>"; };
 		BD9494DC2C45B5B500F22241 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BD9494DF2C45B5B500F22241 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -52,7 +52,7 @@
 			isa = PBXGroup;
 			children = (
 				BD9494D82C45B5B300F22241 /* LogInObservation_EndApp.swift */,
-				BD9494DA2C45B5B300F22241 /* ContentView.swift */,
+				BD9494DA2C45B5B300F22241 /* LogInView.swift */,
 				BD9494DC2C45B5B500F22241 /* Assets.xcassets */,
 				BD9494DE2C45B5B500F22241 /* Preview Content */,
 			);
@@ -137,7 +137,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BD9494DB2C45B5B300F22241 /* ContentView.swift in Sources */,
+				BD9494DB2C45B5B300F22241 /* LogInView.swift in Sources */,
 				BD9494D92C45B5B300F22241 /* LogInObservation_EndApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -9,9 +9,11 @@ import SwiftUI
 
 @main
 struct LogInObservation_EndApp: App {
+    @State var userValidator = UserValidator()
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            LogInView(userValidator: userValidator)
         }
     }
 }
