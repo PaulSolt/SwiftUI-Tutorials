@@ -34,6 +34,9 @@ struct LogInView: View {
                     SecureField(text: $userValidator.password) {
                         Text("Password")
                     }
+                    .onSubmit {
+                        print("Name: \(userValidator.name), Email: \(userValidator.email), Password: \(userValidator.password)")
+                    }
                 }
                 //            .textFieldStyle(.roundedBorder)
                 .padding()
@@ -59,8 +62,13 @@ struct LogInView: View {
     }
 }
 
+@available(iOS 18, *)
 #Preview {
     @Previewable @State var userValidator = UserValidator()
     
     LogInView(userValidator: userValidator)
+}
+
+#Preview {
+    LogInView(userValidator: UserValidator())
 }
