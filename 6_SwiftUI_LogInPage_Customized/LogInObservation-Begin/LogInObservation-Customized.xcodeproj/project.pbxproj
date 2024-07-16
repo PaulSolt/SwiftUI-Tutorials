@@ -105,7 +105,7 @@
 					};
 				};
 			};
-			buildConfigurationList = BD9494D02C45B5B300F22241 /* Build configuration list for PBXProject "LogInObservation-End" */;
+			buildConfigurationList = BD9494D02C45B5B300F22241 /* Build configuration list for PBXProject "LogInObservation-Customized" */;
 			compatibilityVersion = "Xcode 15.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -331,7 +331,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		BD9494D02C45B5B300F22241 /* Build configuration list for PBXProject "LogInObservation-End" */ = {
+		BD9494D02C45B5B300F22241 /* Build configuration list for PBXProject "LogInObservation-Customized" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				BD9494E12C45B5B500F22241 /* Debug */,
