@@ -5,3 +5,4 @@
 3. [macOS - NSPanel Full Screen Notification](3_Mac_NSPanel_FullScreen_Notification/README.md)
 4. [macOS - UI Test SwiftUI and AppKit](4_Mac_UI_Testing/README.md)
 5. [SwiftUI Login Page - Observation](5_SwiftUI_Observation_LogInPage/README.md)
+6. [SwiftUI Login Page Polish - TextField Customization](6_SwiftUI_LogInPage_Customized)
