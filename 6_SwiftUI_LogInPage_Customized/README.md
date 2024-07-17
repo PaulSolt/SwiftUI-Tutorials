@@ -1,11 +1,8 @@
-# 2024-07-16 SwiftUI Login Page Polish - TextField Customization
+# 2024-07-16 How to Use TextField Keyboard Focus in SwiftUI with @FocusState
 
-How to Use TextField Keyboard Focus in SwiftUI with @FocusState
-
+Are you struggling with managing keyboard focus in your SwiftUI login forms? In this video, I'm going to show you how to take control of TextField focus, customize your input fields, and enhance user experience effortlessly. Let's dive in!
 
 ## Enable Focus on SwiftUI TextField and SecureField
-
-"Are you struggling with managing keyboard focus in your SwiftUI login forms? In this video, I'm going to show you how to take control of TextField focus, customize your input fields, and enhance user experience effortlessly. Let's dive in!"
 
 Use: FocusState to set the focused UI element when tapping near a TextField.
 
