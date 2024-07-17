@@ -62,12 +62,12 @@ struct LogInView: View {
     }
 }
 
-@available(iOS 18, *)
-#Preview {
-    @Previewable @State var userValidator = UserValidator()
-    
-    LogInView(userValidator: userValidator)
-}
+//@available(iOS 18, *)
+//#Preview {
+//    @Previewable @State var userValidator = UserValidator()
+//    
+//    LogInView(userValidator: userValidator)
+//}
 
 #Preview {
     LogInView(userValidator: UserValidator())

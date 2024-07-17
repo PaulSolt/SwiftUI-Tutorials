@@ -11,6 +11,7 @@ import Observation // iOS 17
     var name = ""
     var email = ""
     var password = ""
+    var processing = false
     
     var isSubmitButtonDisabled: Bool {
         name.isEmpty || password.count < 8 || !isValidEmail(string: email)
@@ -26,5 +27,6 @@ import Observation // iOS 17
     
     func createAccount() {
         print("Name: \(name), Email: \(email), Password: \(password)")
+        processing = true
     }
 }

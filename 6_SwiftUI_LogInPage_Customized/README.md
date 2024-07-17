@@ -1,6 +1,7 @@
 # 2024-07-16 SwiftUI Login Page Polish - TextField Customization
 
-## Problem: Padding is not tappable around TextField and SecureField
+
+## Enable Focus on SwiftUI TextField and SecureField
 
 Use: FocusState to set the focused UI element when tapping near a TextField.
 
@@ -10,10 +11,60 @@ enum LogInFocus: Int, Hashable {
 }
 ```
 
+Add: 
+
+```swift
+@FocusState var focusedField: LogInFocus?
+```
+
+Annotate each text field.
+
 ```swift
 TextField(text: $userValidator.name) {
   // ...
-.focused($focusedField, equals: .name)
+.focused($focusedField, equals: .nameField)
+```
+
+```swift
+TextField(text: $userValidator.email) {
+  // ...
+.focused($focusedField, equals: .emailField)
+```
+
+```swift
+SecureField(text: $userValidator.password) {
+	// ... 
+.focused($focusedField, equals: .passwordField)
+```
+
+Now for the top level `VStack`, make it set the keyboard focus.
+
+```swift
+.onAppear {
+    focusedField = .nameField
+}
+```
+
+## Problem: Padding Around Custom TextField is Not Tappable
+
+If you need to match UX, there isn't a good way to expand the tap region beyond using a tap gesture and focus.
+
+To get this to work you'll need to add a `clipShape` or `contentShape` before the `tapGesture`.
+
+We need to move padding inside with clip shape to fix tap issue. Remove the `Group` and duplicate this code across all inputs (Refactor it later).
+
+```swift
+.padding(50)
+.background(.background) // Dark mode support
+.clipShape(.rect(cornerRadius: 4))
+```
+
+Then you can append the tap gesture
+
+```swift
+TextField(text: $userValidator.name) {
+  // ...
+.clipShape(.rect(cornerRadius: 4))
 .onTapGesture {
     focusedField = .nameField
 }
@@ -22,7 +73,7 @@ TextField(text: $userValidator.name) {
 ```swift
 TextField(text: $userValidator.email) {
   // ...
-.focused($focusedField, equals: .email)
+.clipShape(.rect(cornerRadius: 4))
 .onTapGesture {
     focusedField = .email
 }
@@ -31,7 +82,7 @@ TextField(text: $userValidator.email) {
 ```swift
 SecureField(text: $userValidator.password) {
 	// ... 
-.focused($focusedField, equals: .password)
+.clipShape(.rect(cornerRadius: 4))
 .onTapGesture {
     focusedField = .password
 }
@@ -39,7 +90,9 @@ SecureField(text: $userValidator.password) {
 ```
 
 
-## Update the Keyboard Return Button
+## Make Input Easier for the User using Content Types
+
+This allows for completions above the keyboard.
 
 ```swift
 TextField(text: $userValidator.name) {
@@ -54,15 +107,42 @@ TextField(text: $userValidator.email) {
 .textContentType(.emailAddress)
 ```
 
+`.newPassword` will help when creating new passwords, but also requires additional serverside plumbing with [associated domains](https://developer.apple.com/documentation/xcode/supporting-associated-domains) to allow for password expansion.
+
 ```swift
 SecureField(text: $userValidator.password) {
 	// ... 
 .textContentType(.newPassword)
-
 ```
+
+## Customize the Return Button on the iOS Keyboard
+
+Customizing the text for the "return" button allows you to help the user navigate the next actions they can take in a form like dialog.
+
+```swift
+TextField(text: $userValidator.name) {
+	// ... 
+.submitLabel(.next)
+```
+
+```swift
+TextField(text: $userValidator.email) {
+  // ...
+.submitLabel(.next)
+```
+
+Use something different for the last one.
+
+```swift
+SecureField(text: $userValidator.password) {
+	// ... 
+.submitLabel(.go)
+```
+
 
 ## Next Text Field using FocusState
 
+Make it easy to move focus when the "return" button is pressed
 ```swift
 TextField(text: $userValidator.name) {
 	// ... 
@@ -98,6 +178,16 @@ func createAccount() {
 
 ## Custom Logic for Create Account
 
+Add a new Method to `UserValidator`:
+
+```swift
+func createAccount() {
+    print("Name: \(name), Email: \(email), Password: \(password)")
+}
+```
+
+In `LogInView` update the method stub for `createAccount()`
+
 ```swift
 func createAccount() {
     // TODO: Warn user if input is empty (reader exercise)
@@ -111,15 +201,12 @@ func createAccount() {
 }
 ```
 
-Add a new Method to UserValidator:
 
-```swift
-func createAccount() {
-    print("Name: \(name), Email: \(email), Password: \(password)")
-}
-```
 
-## Properties for Variables to Cleanup
+------
+
+
+## How to Refactor SwiftUI Views into Properties and Resuable Views
 
 Extract to computed properties (`some View`)
 

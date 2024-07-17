@@ -56,7 +56,7 @@ struct LogInView: View {
 }
 
 #Preview {
-    @Previewable @State var userValidator = UserValidator()
+//    @Previewable @State var userValidator = UserValidator()
     
-    LogInView(userValidator: userValidator)
+    LogInView(userValidator: UserValidator())
 }

@@ -84,8 +84,16 @@ struct LogInView: View {
             Button {
                 createAccount()
             } label: {
-                Text("Create Account")
-                    .bold()
+                Group {
+                    if !userValidator.processing {
+                        Text("Create Account")
+                            .bold()
+                    } else {
+                        ProgressView()
+                        
+                    }
+                }
+                .frame(minWidth: 200)
             }
             .disabled(userValidator.isSubmitButtonDisabled)
             .padding(.top, 16)
@@ -120,7 +128,7 @@ struct LogInView: View {
         TextField(text: $userValidator.name) {
             Text("Name")
         }
-        .padding()
+        .padding(50)
         .background(.background) // Dark mode support
         .clipShape(.rect(cornerRadius: 4))
         .autocorrectionDisabled()
