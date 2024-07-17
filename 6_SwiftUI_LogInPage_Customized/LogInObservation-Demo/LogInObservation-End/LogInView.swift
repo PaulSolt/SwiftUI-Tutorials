@@ -128,7 +128,7 @@ struct LogInView: View {
         TextField(text: $userValidator.name) {
             Text("Name")
         }
-        .padding(50)
+        .padding()
         .background(.background) // Dark mode support
         .clipShape(.rect(cornerRadius: 4))
         .autocorrectionDisabled()

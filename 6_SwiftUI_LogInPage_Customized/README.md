@@ -1,7 +1,11 @@
 # 2024-07-16 SwiftUI Login Page Polish - TextField Customization
 
+How to Use TextField Keyboard Focus in SwiftUI with @FocusState
+
 
 ## Enable Focus on SwiftUI TextField and SecureField
+
+"Are you struggling with managing keyboard focus in your SwiftUI login forms? In this video, I'm going to show you how to take control of TextField focus, customize your input fields, and enhance user experience effortlessly. Let's dive in!"
 
 Use: FocusState to set the focused UI element when tapping near a TextField.
 
@@ -90,21 +94,23 @@ SecureField(text: $userValidator.password) {
 ```
 
 
-## Make Input Easier for the User using Content Types
+## Make Input Easier for the User using Content Types and Submit Labels
 
-This allows for completions above the keyboard.
+1. When you set the `textContentType()` iOS will show completions above the keyboard.
+2. You can customize the "return" button on the keyboard using the `submitLabel()`.
 
 ```swift
 TextField(text: $userValidator.name) {
 	// ... 
 .textContentType(.name)
-
+.submitLabel(.next)
 ```
 
 ```swift
 TextField(text: $userValidator.email) {
   // ...
 .textContentType(.emailAddress)
+.submitLabel(.next)
 ```
 
 `.newPassword` will help when creating new passwords, but also requires additional serverside plumbing with [associated domains](https://developer.apple.com/documentation/xcode/supporting-associated-domains) to allow for password expansion.
@@ -113,32 +119,8 @@ TextField(text: $userValidator.email) {
 SecureField(text: $userValidator.password) {
 	// ... 
 .textContentType(.newPassword)
+.submitLabel(.continue)
 ```
-
-## Customize the Return Button on the iOS Keyboard
-
-Customizing the text for the "return" button allows you to help the user navigate the next actions they can take in a form like dialog.
-
-```swift
-TextField(text: $userValidator.name) {
-	// ... 
-.submitLabel(.next)
-```
-
-```swift
-TextField(text: $userValidator.email) {
-  // ...
-.submitLabel(.next)
-```
-
-Use something different for the last one.
-
-```swift
-SecureField(text: $userValidator.password) {
-	// ... 
-.submitLabel(.go)
-```
-
 
 ## Next Text Field using FocusState
 
@@ -201,182 +183,38 @@ func createAccount() {
 }
 ```
 
+## Spinning ProgressView on Button
 
-
-------
-
-
-## How to Refactor SwiftUI Views into Properties and Resuable Views
-
-Extract to computed properties (`some View`)
+Add a new property: to `UserValidator`
 
 ```swift
-    var nameTextField: some View {
-        TextField(text: $userValidator.name) {
-            Text("Name")
-        }
-        .padding()
-        .background(.background) // Dark mode support
-        .clipShape(.rect(cornerRadius: 4))
-        .autocorrectionDisabled()
-        .textInputAutocapitalization(.words)
-        .focused($focusedField, equals: .nameField)
-        .onTapGesture {
-            focusedField = .nameField
-        }
-        .onSubmit {
-            focusedField = .emailField
-        }
-        .submitLabel(.next)
-        .textContentType(.name)
-    }
-
-    var emailTextField: some View {
-        TextField(text: $userValidator.email) {
-            Text("Email")
-        }
-        .padding()
-        .background(.background) // Dark mode support
-        .clipShape(.rect(cornerRadius: 4))
-        
-        .autocorrectionDisabled()
-        .keyboardType(.emailAddress)
-        .focused($focusedField, equals: .emailField)
-        .onTapGesture {
-            focusedField = .emailField
-        }
-        .submitLabel(.next)
-        .onSubmit {
-            focusedField = .passwordField
-        }
-        .textContentType(.emailAddress)
-    }
-
-    var passwordSecureField: some View {
-        SecureField(text: $userValidator.password) {
-            Text("Password")
-        }
-        .focused($focusedField, equals: .passwordField)
-        .padding()
-        .background(.background) // Dark mode support
-        .clipShape(.rect(cornerRadius: 4))
-        .onTapGesture {
-            focusedField = .passwordField
-        }
-        .onSubmit {
-            createAccount()
-        }
-        .textContentType(.newPassword)
-    }
+var creatingAccount = false
 ```
 
-Update the UI
+For now we will only set it, to show how easy it is to provide a progress indicator. You can add a timer or web call to reset the value or transition to the next screen.
 
 ```swift
-var body: some View {
-    VStack(spacing: 16) {
-        Text("Create Account")
-            .bold()
-            .padding(.bottom, 16)
-        
-        VStack(spacing: 16) {
-            nameTextField
-            
-            emailTextField
-            
-            passwordSecureField
-        }
-        Button {
-            createAccount()
-        } label: {
+func createAccount() {
+    print("Create account: \(name), email: \(email), password: \(password)")
+    creatingAccount = true 
+    // TODO: do something to progress the user in the app
+}
+```
+
+Then in `LogInView` update the button label:
+
+```swift
+Button {
+    userValidator.createAccount()
+} label: {
+    Group {
+        if userValidator.creatingAccount {
+            ProgressView()
+        } else {
             Text("Create Account")
                 .bold()
         }
-        .disabled(userValidator.isSubmitButtonDisabled)
-        .padding(.top, 16)
-        .buttonStyle(.borderedProminent)
-        .keyboardShortcut(.defaultAction)
-        
     }
-    .padding(40)
-    .background(Color(UIColor.secondarySystemBackground))
-    .cornerRadius(4)
-    .padding(20)
+    .frame(minWidth: 200)
 }
 ```
-
-## CustomTextField to Reuse Logic (Separate Video)
-
-
-```swift
-import SwiftUI
-
-struct CustomTextField: View {
-    @Binding var text: String
-    var placeholder: String
-    var focus: LogInFocus // Focus of this UI element (Fixes tap area with additional padding)
-    @FocusState var focusedField: LogInFocus?
-    
-    init(text: Binding<String>, placeholder: String, focus: LogInFocus, focusedField: LogInFocus? = nil) {
-        self._text = text
-        self.placeholder = placeholder
-        self.focus = focus
-        self.focusedField = focusedField
-    }
-    
-    var body: some View {
-        TextField(text: $text) {
-            Text(placeholder)
-        }
-        .padding()
-        .background(.background) // Dark mode support
-        .clipShape(.rect(cornerRadius: 4))
-        .autocorrectionDisabled()
-        .onTapGesture {
-            focusedField = focus    // Design Workaround: Tap the padding to activate the label
-        }
-        .submitLabel(.next)
-        // .focused($focusedField, equals: focus) // Doesn't appear to work
-    }
-}
-
-```
-
-Rewrite the methods
-
-```swift
-// MARK: Views
-
-var nameTextField: some View {
-    CustomTextField(text: $userValidator.name, placeholder: "Name", focus: .nameField, focusedField: focusedField)
-        .focused($focusedField, equals: .nameField)
-        .textInputAutocapitalization(.words)
-        .textContentType(.name)
-}
-
-var emailTextField: some View {
-    CustomTextField(text: $userValidator.email, placeholder: "Email", focus: .emailField, focusedField: focusedField)
-        .focused($focusedField, equals: .emailField)
-        .keyboardType(.emailAddress)
-        .textContentType(.emailAddress)
-}
-
-var passwordSecureField: some View {
-    SecureField(text: $userValidator.password) {
-        Text("Password")
-    }
-    .focused($focusedField, equals: .passwordField)
-    .padding()
-    .background(.background) // Dark mode support
-    .clipShape(.rect(cornerRadius: 4))
-    .onTapGesture {
-        focusedField = .passwordField
-    }
-    .onSubmit {
-        createAccount()
-    }
-    .textContentType(.newPassword)
-}
-```
-
-Final thoughts: try the same thing for your SecureField to preserve the same styling.

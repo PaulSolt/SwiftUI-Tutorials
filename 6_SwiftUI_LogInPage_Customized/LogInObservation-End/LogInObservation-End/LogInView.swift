@@ -7,9 +7,13 @@
 
 import SwiftUI
 
+enum LogInFocus: Int, Hashable {
+    case name, email, password
+}
 
 struct LogInView: View {
     @Bindable var userValidator: UserValidator
+    @FocusState var focusedField: LogInFocus?
     
     var body: some View {
         VStack(spacing: 16) {
@@ -18,36 +22,71 @@ struct LogInView: View {
                 .padding(.bottom, 16)
             
             VStack(spacing: 16) {
-                Group {
-                    TextField(text: $userValidator.name) {
-                        Text("Name")
-                    }
-                    .autocorrectionDisabled()
-                    .textInputAutocapitalization(.words)
-                    
-                    TextField(text: $userValidator.email) {
-                        Text("Email")
-                    }
-                    .autocorrectionDisabled()
-                    .keyboardType(.emailAddress)
-                    
-                    SecureField(text: $userValidator.password) {
-                        Text("Password")
-                    }
-                    .onSubmit {
-                        print("Name: \(userValidator.name), Email: \(userValidator.email), Password: \(userValidator.password)")
-                    }
+                
+                TextField(text: $userValidator.name) {
+                    Text("Name")
                 }
-                //            .textFieldStyle(.roundedBorder)
+                .autocorrectionDisabled()
+                .textInputAutocapitalization(.words)
+                .focused($focusedField, equals: .name)
                 .padding()
                 .background(.background) // Dark mode support
                 .clipShape(.rect(cornerRadius: 4))
+                .onTapGesture {
+                    focusedField = .name
+                }
+                .textContentType(.name)
+                .submitLabel(.next)
+                .onSubmit {
+                    focusedField = .email
+                }
+                
+                TextField(text: $userValidator.email) {
+                    Text("Email")
+                }
+                .autocorrectionDisabled()
+                .keyboardType(.emailAddress)
+                .focused($focusedField, equals: .email)
+                .padding()
+                .background(.background) // Dark mode support
+                .clipShape(.rect(cornerRadius: 4))
+                .onTapGesture {
+                    focusedField = .email
+                }
+                .textContentType(.emailAddress)
+                .submitLabel(.next)
+                .onSubmit {
+                    focusedField = .password
+                }
+                
+                SecureField(text: $userValidator.password) {
+                    Text("Password")
+                }
+                .onSubmit {
+                    createAccount()
+                }
+                .focused($focusedField, equals: .password)
+                .padding()
+                .background(.background) // Dark mode support
+                .clipShape(.rect(cornerRadius: 4))
+                .onTapGesture {
+                    focusedField = .password
+                }
+                .textContentType(.newPassword)
+                .submitLabel(.continue)
             }
             Button {
-                print("Name: \(userValidator.name), Email: \(userValidator.email), Password: \(userValidator.password)")
+                createAccount()
             } label: {
-                Text("Create Account")
-                    .bold()
+                Group {
+                    if userValidator.isCreatingAccount {
+                        ProgressView()
+                    } else {
+                        Text("Create Account")
+                            .bold()
+                    }
+                }
+                .frame(minWidth: 200)
             }
             .disabled(userValidator.isSubmitButtonDisabled)
             .padding(.top, 16)
@@ -59,6 +98,17 @@ struct LogInView: View {
         .background(Color(UIColor.secondarySystemBackground))
         .cornerRadius(4)
         .padding(20)
+        .onAppear {
+            focusedField = .name
+        }
+    }
+    
+    func createAccount() {
+        if !userValidator.isSubmitButtonDisabled {
+            userValidator.createAccount()
+        } else {
+            print("Error: Please enter a valid name, email, and 8+ character password")
+        }
     }
 }
 
