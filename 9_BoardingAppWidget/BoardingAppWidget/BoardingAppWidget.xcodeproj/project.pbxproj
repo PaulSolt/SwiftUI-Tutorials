@@ -3,196 +3,216 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 60;
+	objectVersion = 77;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		BD0F54622C513B3800D7ECCE /* Swift_Data_DemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0F54612C513B3800D7ECCE /* Swift_Data_DemoApp.swift */; };
-		BD0F54642C513B3800D7ECCE /* CoffeeRecipeList.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0F54632C513B3800D7ECCE /* CoffeeRecipeList.swift */; };
-		BD0F54662C513B3800D7ECCE /* CoffeeRecipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0F54652C513B3800D7ECCE /* CoffeeRecipe.swift */; };
-		BD0F54682C513B3900D7ECCE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD0F54672C513B3900D7ECCE /* Assets.xcassets */; };
-		BD0F546B2C513B3900D7ECCE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD0F546A2C513B3900D7ECCE /* Preview Assets.xcassets */; };
-		BD0F54752C513B3900D7ECCE /* Swift_Data_DemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0F54742C513B3900D7ECCE /* Swift_Data_DemoTests.swift */; };
-		BD8BB8F92C61284E004EDA01 /* Swift-Data-Demo-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BD0F548E2C51463500D7ECCE /* Swift-Data-Demo-Info.plist */; };
+		BDB7856C2CBDBB71005ABA72 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDB7856B2CBDBB71005ABA72 /* WidgetKit.framework */; };
+		BDB7856E2CBDBB71005ABA72 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDB7856D2CBDBB71005ABA72 /* SwiftUI.framework */; };
+		BDB7857F2CBDBB72005ABA72 /* BoardingWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = BDB785692CBDBB71005ABA72 /* BoardingWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		BD0F54712C513B3900D7ECCE /* PBXContainerItemProxy */ = {
+		BDB7857D2CBDBB72005ABA72 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = BD0F54562C513B3800D7ECCE /* Project object */;
+			containerPortal = BDB7854C2CBDBB36005ABA72 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = BD0F545D2C513B3800D7ECCE;
-			remoteInfo = "Swift Data Demo";
+			remoteGlobalIDString = BDB785682CBDBB71005ABA72;
+			remoteInfo = BoardingWidgetExtension;
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		BDB785842CBDBB72005ABA72 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				BDB7857F2CBDBB72005ABA72 /* BoardingWidgetExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
-		BD0F545E2C513B3800D7ECCE /* Swift Data Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Swift Data Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		BD0F54612C513B3800D7ECCE /* Swift_Data_DemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swift_Data_DemoApp.swift; sourceTree = "<group>"; };
-		BD0F54632C513B3800D7ECCE /* CoffeeRecipeList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeRecipeList.swift; sourceTree = "<group>"; };
-		BD0F54652C513B3800D7ECCE /* CoffeeRecipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeRecipe.swift; sourceTree = "<group>"; };
-		BD0F54672C513B3900D7ECCE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		BD0F546A2C513B3900D7ECCE /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		BD0F54702C513B3900D7ECCE /* Swift Data DemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Swift Data DemoTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		BD0F54742C513B3900D7ECCE /* Swift_Data_DemoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swift_Data_DemoTests.swift; sourceTree = "<group>"; };
-		BD0F548D2C51460500D7ECCE /* Swift Data Demo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Swift Data Demo.entitlements"; sourceTree = "<group>"; };
-		BD0F548E2C51463500D7ECCE /* Swift-Data-Demo-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Swift-Data-Demo-Info.plist"; path = "Swift Data Demo/Swift-Data-Demo-Info.plist"; sourceTree = SOURCE_ROOT; };
+		BDB785542CBDBB36005ABA72 /* BoardingAppWidget.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BoardingAppWidget.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BDB785692CBDBB71005ABA72 /* BoardingWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = BoardingWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		BDB7856B2CBDBB71005ABA72 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		BDB7856D2CBDBB71005ABA72 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		BDB785802CBDBB72005ABA72 /* Exceptions for "BoardingWidget" folder in "BoardingWidgetExtension" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = BDB785682CBDBB71005ABA72 /* BoardingWidgetExtension */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		BDB785562CBDBB36005ABA72 /* BoardingAppWidget */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = BoardingAppWidget;
+			sourceTree = "<group>";
+		};
+		BDB7856F2CBDBB71005ABA72 /* BoardingWidget */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				BDB785802CBDBB72005ABA72 /* Exceptions for "BoardingWidget" folder in "BoardingWidgetExtension" target */,
+			);
+			path = BoardingWidget;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
 /* Begin PBXFrameworksBuildPhase section */
-		BD0F545B2C513B3800D7ECCE /* Frameworks */ = {
+		BDB785512CBDBB36005ABA72 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		BD0F546D2C513B3900D7ECCE /* Frameworks */ = {
+		BDB785662CBDBB71005ABA72 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BDB7856E2CBDBB71005ABA72 /* SwiftUI.framework in Frameworks */,
+				BDB7856C2CBDBB71005ABA72 /* WidgetKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		BD0F54552C513B3800D7ECCE = {
+		BDB7854B2CBDBB36005ABA72 = {
 			isa = PBXGroup;
 			children = (
-				BD0F54602C513B3800D7ECCE /* Swift Data Demo */,
-				BD0F54732C513B3900D7ECCE /* Swift Data DemoTests */,
-				BD0F545F2C513B3800D7ECCE /* Products */,
+				BDB785562CBDBB36005ABA72 /* BoardingAppWidget */,
+				BDB7856F2CBDBB71005ABA72 /* BoardingWidget */,
+				BDB7856A2CBDBB71005ABA72 /* Frameworks */,
+				BDB785552CBDBB36005ABA72 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		BD0F545F2C513B3800D7ECCE /* Products */ = {
+		BDB785552CBDBB36005ABA72 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				BD0F545E2C513B3800D7ECCE /* Swift Data Demo.app */,
-				BD0F54702C513B3900D7ECCE /* Swift Data DemoTests.xctest */,
+				BDB785542CBDBB36005ABA72 /* BoardingAppWidget.app */,
+				BDB785692CBDBB71005ABA72 /* BoardingWidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		BD0F54602C513B3800D7ECCE /* Swift Data Demo */ = {
+		BDB7856A2CBDBB71005ABA72 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				BD0F548E2C51463500D7ECCE /* Swift-Data-Demo-Info.plist */,
-				BD0F548D2C51460500D7ECCE /* Swift Data Demo.entitlements */,
-				BD0F54612C513B3800D7ECCE /* Swift_Data_DemoApp.swift */,
-				BD0F54632C513B3800D7ECCE /* CoffeeRecipeList.swift */,
-				BD0F54652C513B3800D7ECCE /* CoffeeRecipe.swift */,
-				BD0F54672C513B3900D7ECCE /* Assets.xcassets */,
-				BD0F54692C513B3900D7ECCE /* Preview Content */,
+				BDB7856B2CBDBB71005ABA72 /* WidgetKit.framework */,
+				BDB7856D2CBDBB71005ABA72 /* SwiftUI.framework */,
 			);
-			path = "Swift Data Demo";
-			sourceTree = "<group>";
-		};
-		BD0F54692C513B3900D7ECCE /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-				BD0F546A2C513B3900D7ECCE /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		BD0F54732C513B3900D7ECCE /* Swift Data DemoTests */ = {
-			isa = PBXGroup;
-			children = (
-				BD0F54742C513B3900D7ECCE /* Swift_Data_DemoTests.swift */,
-			);
-			path = "Swift Data DemoTests";
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		BD0F545D2C513B3800D7ECCE /* Swift Data Demo */ = {
+		BDB785532CBDBB36005ABA72 /* BoardingAppWidget */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = BD0F54842C513B3900D7ECCE /* Build configuration list for PBXNativeTarget "Swift Data Demo" */;
+			buildConfigurationList = BDB785622CBDBB37005ABA72 /* Build configuration list for PBXNativeTarget "BoardingAppWidget" */;
 			buildPhases = (
-				BD0F545A2C513B3800D7ECCE /* Sources */,
-				BD0F545B2C513B3800D7ECCE /* Frameworks */,
-				BD0F545C2C513B3800D7ECCE /* Resources */,
+				BDB785502CBDBB36005ABA72 /* Sources */,
+				BDB785512CBDBB36005ABA72 /* Frameworks */,
+				BDB785522CBDBB36005ABA72 /* Resources */,
+				BDB785842CBDBB72005ABA72 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				BDB7857E2CBDBB72005ABA72 /* PBXTargetDependency */,
 			);
-			name = "Swift Data Demo";
-			productName = "Swift Data Demo";
-			productReference = BD0F545E2C513B3800D7ECCE /* Swift Data Demo.app */;
+			fileSystemSynchronizedGroups = (
+				BDB785562CBDBB36005ABA72 /* BoardingAppWidget */,
+			);
+			name = BoardingAppWidget;
+			packageProductDependencies = (
+			);
+			productName = BoardingAppWidget;
+			productReference = BDB785542CBDBB36005ABA72 /* BoardingAppWidget.app */;
 			productType = "com.apple.product-type.application";
 		};
-		BD0F546F2C513B3900D7ECCE /* Swift Data DemoTests */ = {
+		BDB785682CBDBB71005ABA72 /* BoardingWidgetExtension */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = BD0F54872C513B3900D7ECCE /* Build configuration list for PBXNativeTarget "Swift Data DemoTests" */;
+			buildConfigurationList = BDB785812CBDBB72005ABA72 /* Build configuration list for PBXNativeTarget "BoardingWidgetExtension" */;
 			buildPhases = (
-				BD0F546C2C513B3900D7ECCE /* Sources */,
-				BD0F546D2C513B3900D7ECCE /* Frameworks */,
-				BD0F546E2C513B3900D7ECCE /* Resources */,
+				BDB785652CBDBB71005ABA72 /* Sources */,
+				BDB785662CBDBB71005ABA72 /* Frameworks */,
+				BDB785672CBDBB71005ABA72 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				BD0F54722C513B3900D7ECCE /* PBXTargetDependency */,
 			);
-			name = "Swift Data DemoTests";
-			productName = "Swift Data DemoTests";
-			productReference = BD0F54702C513B3900D7ECCE /* Swift Data DemoTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
+			fileSystemSynchronizedGroups = (
+				BDB7856F2CBDBB71005ABA72 /* BoardingWidget */,
+			);
+			name = BoardingWidgetExtension;
+			packageProductDependencies = (
+			);
+			productName = BoardingWidgetExtension;
+			productReference = BDB785692CBDBB71005ABA72 /* BoardingWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		BD0F54562C513B3800D7ECCE /* Project object */ = {
+		BDB7854C2CBDBB36005ABA72 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1600;
 				LastUpgradeCheck = 1600;
 				TargetAttributes = {
-					BD0F545D2C513B3800D7ECCE = {
+					BDB785532CBDBB36005ABA72 = {
 						CreatedOnToolsVersion = 16.0;
 					};
-					BD0F546F2C513B3900D7ECCE = {
+					BDB785682CBDBB71005ABA72 = {
 						CreatedOnToolsVersion = 16.0;
-						TestTargetID = BD0F545D2C513B3800D7ECCE;
 					};
 				};
 			};
-			buildConfigurationList = BD0F54592C513B3800D7ECCE /* Build configuration list for PBXProject "Swift Data Demo" */;
-			compatibilityVersion = "Xcode 15.0";
+			buildConfigurationList = BDB7854F2CBDBB36005ABA72 /* Build configuration list for PBXProject "BoardingAppWidget" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
 			);
-			mainGroup = BD0F54552C513B3800D7ECCE;
-			productRefGroup = BD0F545F2C513B3800D7ECCE /* Products */;
+			mainGroup = BDB7854B2CBDBB36005ABA72;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = BDB785552CBDBB36005ABA72 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				BD0F545D2C513B3800D7ECCE /* Swift Data Demo */,
-				BD0F546F2C513B3900D7ECCE /* Swift Data DemoTests */,
+				BDB785532CBDBB36005ABA72 /* BoardingAppWidget */,
+				BDB785682CBDBB71005ABA72 /* BoardingWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		BD0F545C2C513B3800D7ECCE /* Resources */ = {
+		BDB785522CBDBB36005ABA72 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BD8BB8F92C61284E004EDA01 /* Swift-Data-Demo-Info.plist in Resources */,
-				BD0F546B2C513B3900D7ECCE /* Preview Assets.xcassets in Resources */,
-				BD0F54682C513B3900D7ECCE /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		BD0F546E2C513B3900D7ECCE /* Resources */ = {
+		BDB785672CBDBB71005ABA72 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -202,36 +222,32 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		BD0F545A2C513B3800D7ECCE /* Sources */ = {
+		BDB785502CBDBB36005ABA72 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BD0F54642C513B3800D7ECCE /* CoffeeRecipeList.swift in Sources */,
-				BD0F54662C513B3800D7ECCE /* CoffeeRecipe.swift in Sources */,
-				BD0F54622C513B3800D7ECCE /* Swift_Data_DemoApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		BD0F546C2C513B3900D7ECCE /* Sources */ = {
+		BDB785652CBDBB71005ABA72 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BD0F54752C513B3900D7ECCE /* Swift_Data_DemoTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		BD0F54722C513B3900D7ECCE /* PBXTargetDependency */ = {
+		BDB7857E2CBDBB72005ABA72 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = BD0F545D2C513B3800D7ECCE /* Swift Data Demo */;
-			targetProxy = BD0F54712C513B3900D7ECCE /* PBXContainerItemProxy */;
+			target = BDB785682CBDBB71005ABA72 /* BoardingWidgetExtension */;
+			targetProxy = BDB7857D2CBDBB72005ABA72 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		BD0F54822C513B3900D7ECCE /* Debug */ = {
+		BDB785602CBDBB37005ABA72 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -294,7 +310,7 @@
 			};
 			name = Debug;
 		};
-		BD0F54832C513B3900D7ECCE /* Release */ = {
+		BDB785612CBDBB37005ABA72 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -350,31 +366,28 @@
 			};
 			name = Release;
 		};
-		BD0F54852C513B3900D7ECCE /* Debug */ = {
+		BDB785632CBDBB37005ABA72 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = "Swift Data Demo/Swift Data Demo.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Swift Data Demo/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"BoardingAppWidget/Preview Content\"";
 				DEVELOPMENT_TEAM = LCRLD36TZ6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "Swift-Data-Demo-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.paulsolt.Swift-Data-Demo";
+				PRODUCT_BUNDLE_IDENTIFIER = com.paulsolt.BoardingAppWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -382,31 +395,28 @@
 			};
 			name = Debug;
 		};
-		BD0F54862C513B3900D7ECCE /* Release */ = {
+		BDB785642CBDBB37005ABA72 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = "Swift Data Demo/Swift Data Demo.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Swift Data Demo/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"BoardingAppWidget/Preview Content\"";
 				DEVELOPMENT_TEAM = LCRLD36TZ6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "Swift-Data-Demo-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.paulsolt.Swift-Data-Demo";
+				PRODUCT_BUNDLE_IDENTIFIER = com.paulsolt.BoardingAppWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -414,75 +424,91 @@
 			};
 			name = Release;
 		};
-		BD0F54882C513B3900D7ECCE /* Debug */ = {
+		BDB785822CBDBB72005ABA72 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = LCRLD36TZ6;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				INFOPLIST_FILE = BoardingWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = BoardingWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.paulsolt.Swift-Data-DemoTests";
+				PRODUCT_BUNDLE_IDENTIFIER = com.paulsolt.BoardingAppWidget.BoardingWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Swift Data Demo.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Swift Data Demo";
 			};
 			name = Debug;
 		};
-		BD0F54892C513B3900D7ECCE /* Release */ = {
+		BDB785832CBDBB72005ABA72 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = LCRLD36TZ6;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				INFOPLIST_FILE = BoardingWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = BoardingWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.paulsolt.Swift-Data-DemoTests";
+				PRODUCT_BUNDLE_IDENTIFIER = com.paulsolt.BoardingAppWidget.BoardingWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Swift Data Demo.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Swift Data Demo";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		BD0F54592C513B3800D7ECCE /* Build configuration list for PBXProject "Swift Data Demo" */ = {
+		BDB7854F2CBDBB36005ABA72 /* Build configuration list for PBXProject "BoardingAppWidget" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				BD0F54822C513B3900D7ECCE /* Debug */,
-				BD0F54832C513B3900D7ECCE /* Release */,
+				BDB785602CBDBB37005ABA72 /* Debug */,
+				BDB785612CBDBB37005ABA72 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		BD0F54842C513B3900D7ECCE /* Build configuration list for PBXNativeTarget "Swift Data Demo" */ = {
+		BDB785622CBDBB37005ABA72 /* Build configuration list for PBXNativeTarget "BoardingAppWidget" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				BD0F54852C513B3900D7ECCE /* Debug */,
-				BD0F54862C513B3900D7ECCE /* Release */,
+				BDB785632CBDBB37005ABA72 /* Debug */,
+				BDB785642CBDBB37005ABA72 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		BD0F54872C513B3900D7ECCE /* Build configuration list for PBXNativeTarget "Swift Data DemoTests" */ = {
+		BDB785812CBDBB72005ABA72 /* Build configuration list for PBXNativeTarget "BoardingWidgetExtension" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				BD0F54882C513B3900D7ECCE /* Debug */,
-				BD0F54892C513B3900D7ECCE /* Release */,
+				BDB785822CBDBB72005ABA72 /* Debug */,
+				BDB785832CBDBB72005ABA72 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = BD0F54562C513B3800D7ECCE /* Project object */;
+	rootObject = BDB7854C2CBDBB36005ABA72 /* Project object */;
 }

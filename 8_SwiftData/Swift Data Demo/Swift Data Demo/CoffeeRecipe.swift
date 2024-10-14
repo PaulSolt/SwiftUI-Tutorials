@@ -18,10 +18,10 @@ enum BrewMethod: String, Codable {
     case harioV60_Size3
 }
 
-enum CoffeeType {
+enum CoffeeType: Codable {
     case regular
     case decaf
-    case decafBlend(decafToRegularRatio: Float)  // 0.0 to 1.0 of decaf to regular
+    case decafBlend(decafRatio: Double)  // 0.0 to 1.0 of decaf to regular 0.5 = 50% decaf
 }
 
 struct CoffeeConstants {
@@ -59,10 +59,34 @@ class DefaultRecipes {
     )
 }
 
+struct PourStage: Codable {
+    var title: String
+    var icon: String
+    var pourCurve: PourCurve
+//    var startTime: TimeInterval
+    var duration: TimeInterval
+}
+
+enum PourCurve: String, Codable {
+    case steady // linear over entire range
+    case fastPour // 5 second pour or 25% of duration (ease out)
+    case mediumPour // 10-second pour or 50% of duration (ease out)
+    case slowPour // 15-second pour or 75% of duration (ease out)
+}
+
+enum BrewStage: Codable {
+    case bloom(amount: Double, curve: PourCurve)
+//    case pour
+    case pour(amount: Double, curve: PourCurve)
+    case drain
+}
+
 @Model
-final class CoffeeRecipe {
+final class CoffeeRecipe: Codable {
     var id: UUID = UUID()
     var dateModified: Date = Date.distantPast
+    var dateCreated: Date = Date.distantPast
+    var manualSortIndex: Int = -1
     var title: String = "6-cup Chemex"
     var brewMethod: BrewMethod = BrewMethod.chemex_6Cup
     var waterToCoffeeRatio: Double = 17     // 17g water : 1g coffee
@@ -73,7 +97,10 @@ final class CoffeeRecipe {
     var bloomTime: TimeInterval = 30        // 30 seconds
     var pourTime: TimeInterval = 3.5 * 60   // 3:30 minutes
     var drainTime: TimeInterval = 5 * 60    // 5 minutes
+   
+    var coffeeType: CoffeeType = CoffeeType.regular
     
+//    var pourStages: [Stage]
     // FIXME: Cupsize feels like it's an app setting
     var cupSize: Double = 4 /// Currently 4oz is the default since I use small cups (may change to mL)
     var servings: Double = 6 /// Calculated based on estimated yeild from brew method
@@ -82,7 +109,23 @@ final class CoffeeRecipe {
     @Transient var duration: TimeInterval = 0
     @Transient var currentWaterWeight: Double = 0
     
-    init(id: UUID? = nil, dateModified: Date, title: String, brewMethod: BrewMethod, waterToCoffeeRatio: Double, coffeeWeight: Double, waterWeight: Double? = nil, bloomRatio: Double, bloomTime: TimeInterval, pourTime: TimeInterval, drainTime: TimeInterval, cupSize: Double, servings: Double? = nil, duration: TimeInterval? = nil, currentWaterWeight: Double? = nil) {
+    init(
+        id: UUID? = nil,
+        dateModified: Date,
+        title: String,
+        brewMethod: BrewMethod,
+        waterToCoffeeRatio: Double,
+        coffeeWeight: Double,
+        waterWeight: Double? = nil,
+        bloomRatio: Double,
+        bloomTime: TimeInterval,
+        pourTime: TimeInterval,
+        drainTime: TimeInterval,
+        cupSize: Double,
+        servings: Double? = nil,
+        duration: TimeInterval? = nil,
+        currentWaterWeight: Double? = nil
+    ) {
         self.id = if let id { id } else { UUID() }
         self.dateModified = dateModified
         self.title = title
@@ -111,6 +154,57 @@ final class CoffeeRecipe {
         } else {
             self.servings = calculateServings(fromWaterWeight: self.waterWeight, coffeeWeight: coffeeWeight, brewMethod: brewMethod, cupSize: cupSize)
         }
+    }
+    
+    // MARK: Codable
+    
+    enum CodingKeys: CodingKey {
+        case id
+        case dateModified
+        case title
+        case brewMethod
+        case waterToCoffeeRatio
+        case coffeeWeight
+        case waterWeight
+        case bloomRatio
+        
+        case bloomTime
+        case pourTime
+        case drainTime
+        
+        // TODO: Move to user settings
+//        case cupSize: Double = 4 /// Currently 4oz is the default since I use small cups (may change to mL)
+//        case servings: Double = 6 /// Calculated based on estimated yeild from brew method
+    }
+    
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.id = try container.decode(UUID.self, forKey: .id)
+        self.dateModified = try container.decode(Date.self, forKey: .dateModified)
+        self.title = try container.decode(String.self, forKey: .title)
+        self.brewMethod = try container.decode(BrewMethod.self, forKey: .brewMethod)
+        self.waterToCoffeeRatio = try container.decode(Double.self, forKey: .waterToCoffeeRatio)
+        self.coffeeWeight = try container.decode(Double.self, forKey: .coffeeWeight)
+        self.waterWeight = try container.decode(Double.self, forKey: .waterWeight)
+        self.bloomRatio = try container.decode(Double.self, forKey: .bloomRatio)
+        self.bloomTime = try container.decode(TimeInterval.self, forKey: .bloomTime)
+        self.pourTime = try container.decode(TimeInterval.self, forKey: .pourTime)
+        self.drainTime = try container.decode(TimeInterval.self, forKey: .drainTime)
+    }
+
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(id, forKey: .id)
+        try container.encode(dateModified, forKey: .dateModified)
+        try container.encode(title, forKey: .title)
+        try container.encode(brewMethod, forKey: .brewMethod)
+        try container.encode(waterToCoffeeRatio, forKey: .waterToCoffeeRatio)
+        try container.encode(coffeeWeight, forKey: .coffeeWeight)
+        try container.encode(waterWeight, forKey: .waterWeight)
+        try container.encode(bloomRatio, forKey: .bloomRatio)
+        try container.encode(bloomTime, forKey: .bloomTime)
+        try container.encode(pourTime, forKey: .pourTime)
+        try container.encode(drainTime, forKey: .drainTime)
     }
     
     /// Make a copy of the recipe with a new UUID

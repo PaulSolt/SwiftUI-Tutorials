@@ -10,6 +10,9 @@ import SwiftData
 
 @main
 struct Swift_Data_DemoApp: App {
+//    var undoManager: UndoManager
+    
+//    var sharedModelContainer: ModelContainer
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([
             CoffeeRecipe.self,
@@ -26,8 +29,13 @@ struct Swift_Data_DemoApp: App {
 
     var body: some Scene {
         WindowGroup {
-            CoffeeRecipeList()
+            CoffeeRecipeList() //undoManager: undoManager)
         }
         .modelContainer(sharedModelContainer)
+        
+//        .environment(undoManager)
+//        .environment(\.undoManager, undoManager) //sharedModelContainer.mainContext.undoManager)
+//        .modelContainer(for: [CoffeeRecipe.self], isAutosaveEnabled: true, isUndoEnabled: true)
+
     }
 }
