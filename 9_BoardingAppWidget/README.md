@@ -7,7 +7,7 @@ Based on Arkady's design mockup for a Dubai flight
 
 https://x.com/sovpal/status/1841212238268358720
 
-![Flight Boarding UI](Boarding UI.png)
+![Flight Boarding UI](Boarding_UI.png)
 
 
 ## Match Existing Shapes for the Outline as a Widget
