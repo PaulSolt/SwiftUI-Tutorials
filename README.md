@@ -6,3 +6,6 @@
 4. [macOS - UI Test SwiftUI and AppKit](4_Mac_UI_Testing/README.md)
 5. [SwiftUI Login Page - Observation](5_SwiftUI_Observation_LogInPage/README.md)
 6. [SwiftUI Login Page Polish - TextField Customization](6_SwiftUI_LogInPage_Customized)
+7. [SwiftUI Login Page Refactored Views](7_SwiftUI_LogInPage_Refactored/README.md)
+8. SwiftData
+9. [Boarding App Widget](9_BoardingAppWidget/README.md)

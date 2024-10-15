@@ -45,24 +45,53 @@ struct BoardingWidgetEntryView : View {
     var entry: Provider.Entry
 
     var body: some View {
-        VStack {
-            Text("Time:")
-            Text(entry.date, style: .time)
-
-            Text("Favorite Emoji:")
-            Text(entry.configuration.favoriteEmoji)
+        VStack(alignment: .leading) {
+            HStack {
+                Image(systemName: "airplane")
+                VStack(alignment: .leading) {
+                    Text("BR521")
+                        .font(.system(size: 12, weight: .semibold))
+                    Text("to Dubai")
+                        .font(.system(size: 12, weight: .medium))
+                        .opacity(0.4)
+                }
+                Spacer()
+            }
+            Spacer()
+            
+            VStack(alignment: .leading, spacing: -4) {
+                Text("your gate is")
+                    .opacity(0.4)
+                    .font(.system(size: 12, weight: .medium))
+                Text("B32")
+                    .font(.system(size: 40, weight: .bold))
+                Text("Boarding: Group B")
+                    .font(.system(size: 12, weight: .medium))
+            }
         }
+        .padding(20)
     }
 }
 
+let yellow = Color(red: 255.0 / 255.0, green: 220.0 / 255.0, blue: 6.0 / 255.0)
+
 struct BoardingWidget: Widget {
     let kind: String = "BoardingWidget"
-
+    
     var body: some WidgetConfiguration {
         AppIntentConfiguration(kind: kind, intent: ConfigurationAppIntent.self, provider: Provider()) { entry in
             BoardingWidgetEntryView(entry: entry)
-                .containerBackground(.fill.tertiary, for: .widget)
+                .containerBackground(for: .widget) {
+                    Color.black
+                    
+                    ContainerRelativeShape()
+                        .inset(by: 4)
+                        .fill(yellow)
+                }
+//                .contentMargins(0)
+//                .margin
         }
+        .contentMarginsDisabled()
     }
 }
 
