@@ -1,7 +1,7 @@
 # Boarding App Widget for iOS - Daily Design Concept
 2024-10-14
 
-A short SwiftUI tutorial to implement the UI for a boarding app for flights.
+A short SwiftUI tutorial to implement the UI for a flight boarding widget for your next trip.
 
 <img src="boarding_widget_ios.png" alt="Boarding Widget on iOS" style="width: 250px; border:1px solid gray;"/>
 
