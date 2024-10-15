@@ -3,6 +3,8 @@
 
 A short SwiftUI tutorial to implement the UI for a boarding app for flights.
 
+<img src="boarding_widget_ios.png" alt="Boarding Widget on iOS" style="width: 250px; border:1px solid gray;"/>
+
 Based on Arkady's design mockup for a Dubai flight
 
 <https://x.com/sovpal/status/1841212238268358720>
