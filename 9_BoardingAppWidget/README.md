@@ -5,7 +5,7 @@ A short SwiftUI tutorial to implement the UI for a boarding app for flights.
 
 Based on Arkady's design mockup for a Dubai flight
 
-https://x.com/sovpal/status/1841212238268358720
+<https://x.com/sovpal/status/1841212238268358720>
 
 ![Flight Boarding UI](Boarding_UI.png)
 
@@ -21,3 +21,7 @@ https://x.com/sovpal/status/1841212238268358720
 		.fill(Color.yellow)
 }
 ```
+
+## References
+
+* <https://useyourloaf.com/blog/swiftui-container-relative-shape/>
