@@ -1,0 +1,38 @@
+{
+  "configurations" : [
+    {
+      "id" : "3E58BB9F-54C3-4483-8185-40DFD7535959",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:RoundingApp.xcodeproj",
+      "identifier" : "BD8629302CDBDB7200665C50",
+      "name" : "RoundingApp"
+    }
+  },
+  "testTargets" : [
+    {
+      "parallelizable" : false,
+      "target" : {
+        "containerPath" : "container:RoundingApp.xcodeproj",
+        "identifier" : "BD8629402CDBDB7300665C50",
+        "name" : "RoundingAppTests"
+      }
+    },
+    {
+      "enabled" : false,
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:RoundingApp.xcodeproj",
+        "identifier" : "BD86294A2CDBDB7300665C50",
+        "name" : "RoundingAppUITests"
+      }
+    }
+  ],
+  "version" : 1
+}
