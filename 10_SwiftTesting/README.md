@@ -1,10 +1,14 @@
-//
-//  RoundingAppTests.swift
-//  RoundingAppTests
-//
-//  Created by Paul Solt on 11/6/24.
-//
+# Swift Testing in Xcode 16
+2024-11-06
 
+There is no direct helper for testing floating point calculations. The current best practice is to use Swift Numerics, since cross-platform floating point math is 
+
+1. File > Add Package: <https://github.com/apple/swift-numerics>
+2. Add `Numerics` Library to unit test target
+3. Add the framework in the code file: `import Numerics`
+4. Write unit test:
+
+```swift
 import Numerics
 import Testing
 @testable import RoundingApp
@@ -12,8 +16,6 @@ import Testing
 struct RoundingAppTests {
 
     @Test func example() async throws {
-        // Write your test here and use APIs like `#expect(...)` to check expected conditions.
-        
         let a = 305.39483
         let b = 905.0
         let c = 123.22222
@@ -27,3 +29,4 @@ struct RoundingAppTests {
         #expect(result.isApproximatelyEqual(to: 2.396, absoluteTolerance: 0.001))
     }
 }
+```

@@ -9,3 +9,4 @@
 7. [SwiftUI Login Page Refactored Views](7_SwiftUI_LogInPage_Refactored/README.md)
 8. SwiftData
 9. [Boarding App Widget](9_BoardingAppWidget/README.md)
+10. [Swift Testing](10_SwiftTesting/README.md)
