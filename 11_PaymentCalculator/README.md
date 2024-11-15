@@ -1,9 +1,12 @@
-# Payment Calculator
+# Payment Calculator - SwiftUI
 2024-11-14
 
 Create a Mockup of a Payment Calculator and calculate the PMT value for a loan amount.
 
 <img src="Hero-PaymentCalculator.png" alt="" style="width: 300px"/>
+
+Credit: Sarah Kinney <https://dribbble.com/shots/5273790-Payment-Calculator-Daily-UI-004>
+
 
 ## Custom Components
 
@@ -12,10 +15,6 @@ Create a Mockup of a Payment Calculator and calculate the PMT value for a loan a
 * Term Selector (Horizontal selection)
 
 ## Topics
-
-Learn how to create a fast and efficient payment calculator using SwiftUI. We'll implement the design from:
-
-Sarah Kinney: <https://dribbble.com/shots/5273790-Payment-Calculator-Daily-UI-004>
 
 * Navigation ToolbarItem and Background Color
 * CustomSlider
