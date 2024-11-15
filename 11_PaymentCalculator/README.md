@@ -7,9 +7,24 @@ Create a Mockup of a Payment Calculator and calculate the PMT value for a loan a
 
 ## Custom Components
 
-* Slider
-* Navigation Bar
-* Term Selector
+* Custom Navigation Bar
+* CustomSlider
+* Term Selector (Horizontal selection)
+
+## Topics
+
+Learn how to create a fast and efficient payment calculator using SwiftUI. We'll implement the design from:
+
+Sarah Kinney: <https://dribbble.com/shots/5273790-Payment-Calculator-Daily-UI-004>
+
+* Navigation ToolbarItem and Background Color
+* CustomSlider
+* SliderControl for PaymentCell
+* Data Model
+* Loan Card
+* Estimated Payment
+* Estimated Payment Calculations (PMT)
+* Refactor
 
 ## PMT
 
@@ -23,3 +38,7 @@ Calculates the periodic payment loan amount for each month similar to the Excel 
 	R = Periodic Interest Rate = APR/number of interest periods per year
 	n = Total number of interest periods (interest periods per year * number of years)
 
+## Resources
+
+* <https://superuser.com/questions/871404/what-would-be-the-the-mathematical-equivalent-of-this-excel-formula-pmt>
+* <https://www.calculator.net/payment-calculator.html?ctype=fixterm&cloanamount=21%2C900&cloanterm=5&cmonthlypay=2%2C000&cinterestrate=3.99&printit=0&x=Calculate#result>
