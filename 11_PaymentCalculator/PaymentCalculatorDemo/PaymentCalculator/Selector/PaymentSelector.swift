@@ -1,5 +1,5 @@
 //
-//  PaymentSlidingControl.swift
+//  PaymentSelector.swift
 //  PaymentCalculator
 //
 //  Created by Paul Solt on 11/14/24.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct PaymentSlidingControl: View {
+struct PaymentSelector: View {
     let cornerRadius: CGFloat = 5
     let color = Color(white: 0.7) //Color(UIColor.tertiaryLabel)
     
@@ -102,7 +102,7 @@ struct PaymentSlidingControl: View {
     @Previewable
     @State var selectedIndex = 1
     
-    PaymentSlidingControl(options: paymentTerms, selectedIndex: $selectedIndex)
+    PaymentSelector(options: paymentTerms, selectedIndex: $selectedIndex)
         .onChange(of: selectedIndex) { oldValue, newValue in
             print("Term: \(newValue) \(paymentTerms[selectedIndex])")
         }

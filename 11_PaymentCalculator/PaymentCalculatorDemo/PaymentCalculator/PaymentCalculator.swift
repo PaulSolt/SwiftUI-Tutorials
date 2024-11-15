@@ -146,7 +146,7 @@ struct PaymentCalculator: View {
                     .foregroundStyle(.secondary)
                 Spacer()
             }
-            PaymentSlidingControl(options: paymentTerms, selectedIndex: $selectedIndex)
+            PaymentSelector(options: paymentTerms, selectedIndex: $selectedIndex)
         }
     }
     
