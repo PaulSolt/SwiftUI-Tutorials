@@ -18,9 +18,9 @@ Credit: Sarah Kinney <https://dribbble.com/shots/5273790-Payment-Calculator-Dail
 
 * Navigation ToolbarItem and Background Color
 * CustomSlider
+* Loan Card
 * SliderControl for PaymentCell
 * Data Model
-* Loan Card
 * Estimated Payment
 * Estimated Payment Calculations (PMT)
 * Refactor
