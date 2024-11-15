@@ -10,3 +10,7 @@
 8. SwiftData
 9. [Boarding App Widget](9_BoardingAppWidget/README.md)
 10. [Swift Testing](10_SwiftTesting/README.md)
+11. [Payment Calculator - SwiftUI Design](11_PaymentCalculator/README.md)
+	1. Custom Nav Bar
+12. [CustomSlider - UISlider for SwiftUI](/12_CustomSlider/README.md)
+13. [CustomSelector - Multiline Horizontal Segmented Control](13_CustomSelector/README.md)

@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct PaymentTerm {
+struct PaymentTerm: Equatable {
     let months: Int
     let apr: Double
 }

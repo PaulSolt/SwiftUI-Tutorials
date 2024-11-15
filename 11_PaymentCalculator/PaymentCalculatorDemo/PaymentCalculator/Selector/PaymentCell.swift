@@ -26,3 +26,13 @@ struct PaymentCell: View {
         .background(selected ? Color.blue : Color.clear)
     }
 }
+
+#Preview(traits: .sizeThatFitsLayout) {
+    let term = PaymentTerm(months: 144, apr: 0.0564)
+    
+    HStack {
+        PaymentCell(payment: term, selected: false)
+        PaymentCell(payment: term, selected: true)
+    }
+    .frame(height: 60)
+}

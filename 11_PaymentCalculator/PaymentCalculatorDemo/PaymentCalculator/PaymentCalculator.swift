@@ -23,37 +23,77 @@ struct PaymentCalculator: View {
         PaymentTerm(months: 144, apr: 0.0564),
     ]
     
+    @State var selectedIndex = 2
+    
     static let thumbImage = ImageHelper.createThumbImage(size: CGSize(width: 30, height: 30), tint: UIColor(Colors.thumb))
     
+    init() {
+//        setNavigationBarShadow(hidden: true)
+    }
+    
     var body: some View {
-        VStack(spacing: 0) {
-            customNavigationBar
-            
+//        ZStack {
+//            Colors.blue
+//            VStack(spacing: 0) {
+//                customNavigationBar
             NavigationStack {
-                VStack {
+                ZStack(alignment: .top) {
+                    Colors.blue // Top edge will now fill under navigation bar
+                        .ignoresSafeArea()
+                        .frame(height: 60)
                     
-                    loanCalculator
-                    
-                    Spacer()
-                        .frame(height: 30)
-                    
-                    estimatedPayment
-                    
-                    Spacer() // Push content upwards
+                    VStack(spacing: 0) {
+                        
+                        loanCalculator
+                        
+                        Spacer()
+                            .frame(height: 30)
+                        
+                        estimatedPayment
+                        
+                        Spacer() // Push content upwards
+                    }
+                    // Another way to show background, but with a dropshadow
+//                    .toolbarBackground(Colors.blue, for: .automatic)
+//                    .toolbarBackground(.visible, for: .navigationBar)
+                    .toolbar {
+                        ToolbarItem(placement: .principal) {
+                            toolbarItem
+                        }
+                        ToolbarItem(placement: .topBarLeading) { // Match the mockup, so other view pushing this calculator
+                            Button(action: {
+                                print("Back button tapped")
+                            }) {
+                                Image(systemName: "chevron.left")
+                                    .foregroundColor(.white)
+                                    .padding(.leading)
+                                    .bold()
+                            }
+                        }
+                    }
                 }
-                // Uncomment to see the navigation bar, you'll need to turn off customNavigationBar
-//                .toolbarBackground(Colors.blue, for: .automatic)
-//                .toolbarBackground(.visible, for: .navigationBar)
-//                .toolbar {
-//                    ToolbarItem(placement: .principal) {
-//                        toolbarItem
-//                    }
-//                }
             }
-        }
+            .onAppear {
+//                setNavigationBarShadow(hidden: true)
+            }
+//        }
+    }
+    
+    func setNavigationBarShadow(hidden: Bool) {
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithOpaqueBackground()
+        appearance.backgroundColor = UIColor(Colors.blue) // Keep the background color
+        appearance.shadowColor = hidden ? .clear : UIColor.black.withAlphaComponent(0.3) // Show or hide shadow
+        
+        UINavigationBar.appearance().standardAppearance = appearance
+        UINavigationBar.appearance().scrollEdgeAppearance = appearance
+        UINavigationBar.appearance().compactAppearance = appearance
     }
     
     func calculatePMT() -> Double {
+        guard selectedIndex != -1, selectedIndex < paymentTerms.count else { return 0 }
+        let selectedTerm = paymentTerms[selectedIndex]
+        
         let amount = max(0, loanAmount - downPayment)
         let pmt = PMTCalculator.calculate(loanAmount: amount, apr: selectedTerm.apr, months: Double(selectedTerm.months))
         return pmt
@@ -106,7 +146,7 @@ struct PaymentCalculator: View {
                     .foregroundStyle(.secondary)
                 Spacer()
             }
-            SlidingControl(options: paymentTerms, selectedTerm: $selectedTerm)
+            PaymentSlidingControl(options: paymentTerms, selectedIndex: $selectedIndex)
         }
     }
     
@@ -119,16 +159,11 @@ struct PaymentCalculator: View {
             
             loanTermSelector
         }
-        .padding(outsidePadding + innerPadding) // Inset 20 + 20
+        .padding(innerPadding)
         .background {
-            ZStack(alignment: .top) {
-                Colors.blue             // Create flow effect from nav bar
-                    .frame(height: 50)
-                
                 boxBackground
-                    .padding([.top, .horizontal], 20) // Inset box
-            }
         }
+        .padding([.top, .horizontal], outsidePadding)
     }
     
     @ViewBuilder
@@ -185,7 +220,7 @@ struct PaymentCalculator: View {
                     .foregroundStyle(Colors.blue)
                     .bold()
             }
-            CustomUISlider(value: $loanAmount, range: 0...500_000, thumbImage: Self.thumbImage, trackHeight: 12)
+            CustomSlider(value: $loanAmount, range: 0...500_000, thumbImage: Self.thumbImage, trackHeight: 12)
                 .tint(Colors.main)
         }
         .padding(.bottom, 20)
@@ -203,7 +238,7 @@ struct PaymentCalculator: View {
                     .foregroundStyle(Colors.blue)
                     .bold()
             }
-            CustomUISlider(value: $downPayment, range: 0...500_000, thumbImage: Self.thumbImage, trackHeight: 12)
+            CustomSlider(value: $downPayment, range: 0...500_000, thumbImage: Self.thumbImage, trackHeight: 12)
                 .tint(Colors.main)
         }
         .padding(.bottom, 20)

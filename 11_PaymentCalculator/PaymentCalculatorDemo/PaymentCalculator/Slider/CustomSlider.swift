@@ -1,5 +1,5 @@
 //
-//  CustomUISlider.swift
+//  CustomSlider.swift
 //  PaymentCalculator
 //
 //  Created by Paul Solt on 11/14/24.
@@ -7,16 +7,17 @@
 
 import SwiftUI
 
-struct CustomUISlider: UIViewRepresentable {
+struct CustomSlider: UIViewRepresentable {
     @Binding var value: Double
     var range: ClosedRange<Double>
     var thumbImage: UIImage?
     var trackHeight: CGFloat = 8
+    var hideThumbImage: Bool = false
     
     class Coordinator: NSObject {
-        var parent: CustomUISlider
+        var parent: CustomSlider
         
-        init(parent: CustomUISlider) {
+        init(parent: CustomSlider) {
             self.parent = parent
         }
         
@@ -41,6 +42,10 @@ struct CustomUISlider: UIViewRepresentable {
         }
         
         slider.addTarget(context.coordinator, action: #selector(Coordinator.valueChanged(_:)), for: .valueChanged)
+        
+        if hideThumbImage {
+            slider.thumbTintColor = .clear
+        }
         return slider
     }
     
@@ -53,12 +58,19 @@ struct CustomUISlider: UIViewRepresentable {
     @Previewable
     @State var loanAmount: Double = 55_000
     let thumbnail = ImageHelper.createThumbImage(size: CGSize(width: 30, height: 30), tint: .red)
+    
+    let thumbnail2 = ImageHelper.createThumbImage(size: CGSize(width: 30, height: 30), tint: .black)
+
     Group {
-        CustomUISlider(value: $loanAmount, range: 0...500_000, thumbImage: thumbnail, trackHeight: 4)
+        CustomSlider(value: $loanAmount, range: 0...500_000, thumbImage: thumbnail, trackHeight: 4)
             .tint(Colors.main)
         
-        CustomUISlider(value: $loanAmount, range: 0...500_000, thumbImage: thumbnail, trackHeight: 12)
+        CustomSlider(value: $loanAmount, range: 0...500_000, thumbImage: nil, trackHeight: 4, hideThumbImage: true)
+            .tint(Colors.main)
+        
+        CustomSlider(value: $loanAmount, range: 0...500_000, thumbImage: thumbnail2, trackHeight: 12)
             .tint(.blue)
+        
     }
     .padding()
 
