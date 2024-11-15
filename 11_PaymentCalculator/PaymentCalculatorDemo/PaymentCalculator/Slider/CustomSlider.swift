@@ -67,7 +67,10 @@ struct CustomSlider: UIViewRepresentable {
         
         CustomSlider(value: $loanAmount, range: 0...500_000, thumbImage: nil, trackHeight: 4, hideThumbImage: true)
             .tint(Colors.main)
-        
+       
+        CustomSlider(value: $loanAmount, range: 0...500_000, thumbImage: UIImage(systemName: "trash.fill"), trackHeight: 4, hideThumbImage: false)
+            .tint(Colors.main)
+
         CustomSlider(value: $loanAmount, range: 0...500_000, thumbImage: thumbnail2, trackHeight: 12)
             .tint(.blue)
         

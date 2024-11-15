@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct PaymentCalculator: View {
+    @State var loanAmount: Double = 21_900
+    
     var body: some View {
         NavigationStack {
             ZStack(alignment: .top) {
@@ -17,10 +19,12 @@ struct PaymentCalculator: View {
                 
                 VStack {
                     VStack {
-                        Image(systemName: "globe")
-                            .imageScale(.large)
-                            .foregroundStyle(.tint)
-                        Text("Hello, world!")
+                        Slider(value: $loanAmount, in: 0...100_000)
+                            .tint(Color.red)
+                        
+                        CustomSlider(value: $loanAmount, range: 0...100_000, trackHeight: 8, thumbImage: ImageHelper.createThumbnail(size: CGSize(width: 30, height: 30), tint: .orange))
+                            .tint(Color.yellow)
+
                     }
                     .background(.white)
                     
