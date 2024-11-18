@@ -15,7 +15,7 @@ struct ImageHelper {
         
         let rect = CGRect(x: 0, y: 0, width: size.width, height: size.height)
         let dotLength = size.width / 4
-        let inset = dotLength + dotLength / 2// TODO: Fixme
+        let inset = dotLength + dotLength / 2
         let innerRect = CGRect(x: inset, y: inset, width: dotLength, height: dotLength)
         
         let renderer = UIGraphicsImageRenderer(size: size)

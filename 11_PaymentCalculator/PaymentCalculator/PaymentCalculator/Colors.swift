@@ -13,4 +13,5 @@ struct Colors {
     static let thumb = Color(red: 58 / 255, green: 208 / 255, blue: 54 / 255)
     static let blue = Color(red: 1 / 255, green: 116 / 255, blue: 238 / 255)
     static let title = Color.secondary
+    static let secondaryTitle = Color.primary.opacity(0.7)
 }

@@ -20,10 +20,9 @@ Credit: Sarah Kinney <https://dribbble.com/shots/5273790-Payment-Calculator-Dail
 * CustomSlider
 * Loan Card
 * SliderControl for PaymentCell
-* Data Model
-* Estimated Payment
 * Estimated Payment Calculations (PMT)
-* Refactor
+* Estimated Payment Card
+* (Optional) Refactor: Extract a ViewModel 
 
 ## PMT
 

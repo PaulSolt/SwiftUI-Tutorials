@@ -25,7 +25,6 @@ struct CustomSlider: UIViewRepresentable {
         
         @objc func valueChanged(_ sender: UISlider) {
             parent.value = Double(sender.value)
-            print("value: \(parent.value)")
         }
     }
     

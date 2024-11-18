@@ -7,13 +7,26 @@
 
 import SwiftUI
 
-
-
 struct PaymentCalculator: View {
     @State var loanAmount: Double = 21_900
     @State var downPayment: Double = 0
+    @State var selectedIndex: Int = 2
     
     static let thumbImage = ImageHelper.createThumbnail(size: CGSize(width: 30, height: 30), tint: UIColor(Colors.thumb))
+    
+    var paymentTerms = [
+        PaymentTerm(months: 36, apr: 0.0349),
+        PaymentTerm(months: 48, apr: 0.0374),
+        PaymentTerm(months: 60, apr: 0.0399),
+        PaymentTerm(months: 72, apr: 0.0424),
+        PaymentTerm(months: 144, apr: 0.056),
+        PaymentTerm(months: 288, apr: 0.0593)
+    ]
+   
+    let innerPadding: CGFloat = 20
+    let rowPadding: CGFloat = 30
+    let outerPadding: CGFloat = 20
+    let cardCornerRadius: CGFloat = 4
     
     var body: some View {
         NavigationStack {
@@ -23,10 +36,11 @@ struct PaymentCalculator: View {
                     .frame(height: 60)
                 
                 VStack {
-                    VStack {
+                    VStack(spacing: rowPadding) {
                         loanCalculator
                             .padding(.top, outerPadding)
                                             
+                        estimatedPayment
                     }
                     
                     Spacer()
@@ -66,11 +80,6 @@ struct PaymentCalculator: View {
         }
     }
     
-    let innerPadding: CGFloat = 20
-    let rowPadding: CGFloat = 30
-    let outerPadding: CGFloat = 20
-    let cardCornerRadius: CGFloat = 4
-    
     @ViewBuilder
     var loanCalculator: some View {
         VStack(spacing: 30) {
@@ -87,6 +96,49 @@ struct PaymentCalculator: View {
         }
     }
     
+    var estimatedPayment: some View {
+        HStack {
+            Image("CardHero")
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(width: 100)
+            
+            Spacer()
+            
+            VStack {
+                Text("Estimated Payment")
+                    .font(.title3)
+                    .foregroundStyle(Colors.secondaryTitle)
+                
+                HStack(alignment: .firstTextBaseline) {
+                    Text("\(calculatePMT(), format: .currency(code: currencyCode).precision(.fractionLength(0)))")
+                        .font(.largeTitle)
+                        .fontWeight(.black)
+                        .foregroundStyle(Colors.blue)
+                        .monospacedDigit()
+                    
+                    Text("/ mo")
+                        .font(.headline)
+                        .foregroundStyle(Colors.blue.opacity(0.8))
+                }
+            }
+            Spacer()
+        }
+        .padding(.horizontal, innerPadding)
+        .background {
+            boxBackground
+        }
+    }
+    
+    func calculatePMT() -> Double {
+        guard selectedIndex >= 0, selectedIndex < paymentTerms.count else { return 0 }
+        let selectedTerm = paymentTerms[selectedIndex]
+        
+        let amount = max(0, loanAmount - downPayment)
+        let pmt = PMTCalculator.calculate(loanAmount: amount, apr: selectedTerm.apr, months: Double(selectedTerm.months))
+        return pmt
+    }
+    
     var loanSlider: some View {
         VStack {
             HStack {
@@ -99,6 +151,7 @@ struct PaymentCalculator: View {
                 Text("\(loanAmount, format: .currency(code: currencyCode).precision(.fractionLength(0)))")
                     .foregroundStyle(Colors.blue)
                     .fontWeight(.bold)
+                    .monospacedDigit()
             }
             
             CustomSlider(value: $loanAmount, range: 0...500_000, trackHeight: 12, thumbImage: Self.thumbImage)
@@ -122,6 +175,7 @@ struct PaymentCalculator: View {
                 Text("\(downPayment, format: .currency(code: currencyCode).precision(.fractionLength(0)))")
                     .foregroundStyle(Colors.blue)
                     .fontWeight(.bold)
+                    .monospacedDigit()
             }
             
             CustomSlider(value: $downPayment, range: 0...500_000, trackHeight: 12, thumbImage: Self.thumbImage)
@@ -135,10 +189,10 @@ struct PaymentCalculator: View {
                 Text("Loan Term & Estimated APR")
                     .foregroundStyle(Colors.title)
                     .fontWeight(.medium)
-//                    .frame(maxWidth: .infinity, alignment: .leading) // Force the UI to stretch out
-//                    .background(.red)
                 Spacer()
             }
+            
+            PaymentSelector(selectedIndex: $selectedIndex, paymentTerms: paymentTerms)
         }
     }
     
