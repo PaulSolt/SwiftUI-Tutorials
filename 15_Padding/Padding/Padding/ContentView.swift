@@ -51,7 +51,7 @@ I spent a week using ChatGPT Pro with Xcode—and it changed the way I code, but
 //                .background(.orange)
 //                .padding(40)
 //        }
-//    }
+    }
 }
 
 
