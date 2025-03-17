@@ -30,8 +30,31 @@ I spent a week using ChatGPT Pro with Xcode—and it changed the way I code, but
         .background(.blue.gradient)
         .cornerRadius(12)
         .padding(.horizontal, 20) // Outside padding
-    }
+
+//        VStack {
+//            VStack {
+//                Image(systemName: "globe")
+//                    .imageScale(.large)
+//                    .foregroundStyle(.tint)
+//                Text ("Hello, world!")
+//            }
+//            .padding()
+//            .background(.green.gradient)
+//            Text("More text here")
+//                .font(.title)
+//                .background(.blue.gradient)
+//                .padding(.horizontal, 40)
+//                .padding(.vertical, 40)
+//                .background(.yellow.gradient)
+//            Text( "Expand To the Edges")
+//                .frame(maxWidth: .infinity)
+//                .background(.orange)
+//                .padding(40)
+//        }
+//    }
 }
+
+
 
 #Preview {
     ContentView()
