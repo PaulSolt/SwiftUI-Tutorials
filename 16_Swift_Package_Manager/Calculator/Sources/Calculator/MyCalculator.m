@@ -10,7 +10,7 @@
 @implementation MyCalculator
 
 - (NSInteger)calculate {
-    NSLog(@"calcuation=27!");
+//    NSLog(@"calcuation=27!");
     return 27;
 }
 
