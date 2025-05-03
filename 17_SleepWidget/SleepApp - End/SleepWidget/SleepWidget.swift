@@ -2,11 +2,17 @@
 //  SleepWidget.swift
 //  SleepWidget
 //
-//  Created by Paul Solt on 5/3/25.
+//  Created by Paul Solt on 5/5/25.
 //
 
 import WidgetKit
 import SwiftUI
+
+
+// UI
+// 1. Layout
+// 2. Design
+// 3. Cleanup
 
 @Observable
 class SleepViewModel {
@@ -15,22 +21,23 @@ class SleepViewModel {
     var motivationMessage: AttributedString = ""
 
     init(hours: Double) {
-        // Dynamic pieces: “4h”, “sleep”, “rest”
         let sleepDuration = Measurement(value: hours, unit: UnitDuration.hours)
             .formatted(.measurement(width: .narrow))
         let sleep = "sleep"
         let rest = "rest"
 
-        // if sleep < 6 hours
-        let message = "Less than \(sleepDuration) of \(sleep) today"
-        let messageHighlights = [sleepDuration, sleep]
+
+        // Less than 6 hours
+        let message = "Less than \(sleepDuration) of \(sleep) today."
         let motivation = "Get some \(rest)!"
-        let motivationHighlights = [rest]
 
-        // if sleep >= 6 && sleep <= 8 ...
+        // >= 6 hours and < 9 hours
 
-        sleepMessage = highlightAttributedString(message: message, highlights: messageHighlights)
-        motivationMessage = highlightAttributedString(message: motivation, highlights: motivationHighlights)
+        // >= 9 hours
+
+        // highlight text [sleepDuration, sleep]
+        sleepMessage = highlightAttributedString(message: message, highlights: [sleepDuration, sleep])
+        motivationMessage = highlightAttributedString(message: motivation, highlights: [rest])
     }
 
     func highlightAttributedString(message: String, highlights: [String]) -> AttributedString {
@@ -46,38 +53,26 @@ class SleepViewModel {
     }
 }
 
-struct SleepFeedback: View {
-    let viewModel: SleepViewModel = SleepViewModel(hours: 4)
+struct SleepWidgetEntryView : View {
+
+    @State var viewModel = SleepViewModel(hours: 5)
 
     var body: some View {
-        VStack(alignment: .leading) {
+        VStack(alignment: .leading, spacing: 0) {
             Image(systemName: "moon.fill")
                 .foregroundStyle(.primary)
-                .imageScale(.medium)
 
             Spacer(minLength: 0)
 
-//            VStack(alignment: .leading, spacing: 0) {
-//                Text("Less than ") +
-//                Text("4h").foregroundStyle(.primary) +
-//                Text(" of ") +
-//                Text("sleep").foregroundStyle(.primary) +
-//                Text(" today.")
-//            }
             Text(viewModel.sleepMessage)
 
             Spacer(minLength: 0)
 
-//            VStack(spacing: 0) {
-//                Text("Get some ") +
-//                Text("rest").foregroundStyle(.primary) +
-//                Text("!")
-//            }
             Text(viewModel.motivationMessage)
         }
         .foregroundStyle(.secondary)
-        .font(Font.system(size: 18, weight: .bold))
-        .colorScheme(.dark) // Force dark mode
+        .colorScheme(.dark)
+        .font(.system(size: 18, weight: .bold))
     }
 }
 
@@ -86,13 +81,14 @@ struct SleepWidget: Widget {
 
     let lightPurple = Color(red: 120 / 255, green: 49 / 255, blue: 239 / 255)
     let darkPurple = Color(red: 130 / 255, green: 64 / 255, blue: 234 / 255)
+    let light = Color(red: 194 / 255, green: 163 / 255, blue: 241 / 255)
 
     var body: some WidgetConfiguration {
         StaticConfiguration(kind: kind, provider: Provider()) { entry in
-            SleepFeedback()
+            SleepWidgetEntryView()
 //                .containerBackground(.purple.gradient, for: .widget)
 //                .containerBackground(gradient, for: .widget)
-                .containerBackground(meshGradient, for: .widget)
+                .containerBackground(meshGradient2, for: .widget)
         }
         .configurationDisplayName("My Widget")
         .description("This is an example widget.")
@@ -100,23 +96,37 @@ struct SleepWidget: Widget {
 
     var gradient: some ShapeStyle {
         LinearGradient(colors: [lightPurple, darkPurple], startPoint: .top, endPoint: .bottom)
-            .shadow(.inner(color: .white.opacity(0.5), radius: 15, x: 0, y: -5))
+            .shadow(.inner(color: .white.opacity(0.2), radius: 15, x: 0, y: -5))
     }
 
     var meshGradient: some ShapeStyle {
         MeshGradient(width: 3, height: 3, points: [
-            .init(x: 0, y: 0), .init(x: 0.5, y: 0), .init(x: 1.0, y: 0),
-            .init(x: 0, y: 0.5), .init(x: 0.5, y: 0.5), .init(x: 1.0, y: 0.5),
-            .init(x: 0, y: 1), .init(x: 0.5, y: 1), .init(x: 1.0, y: 1),
+            .init(x: 0, y: 0), .init(x: 0.5, y: 0), .init(x: 1, y: 0),
+            .init(x: 0, y: 0.5), .init(x: 0.5, y: 0.5), .init(x: 1, y: 0.5),
+            .init(x: 0, y: 1), .init(x: 0.5, y: 1), .init(x: 1, y: 1),
         ], colors: [
             darkPurple, darkPurple, lightPurple,
             darkPurple, lightPurple, darkPurple,
-            darkPurple, darkPurple, darkPurple
+            lightPurple, lightPurple, lightPurple
         ])
         .shadow(.inner(color: .white.opacity(0.2), radius: 15, x: 0, y: -5))
     }
-}
 
+    // More colors mixing for thumbnail
+    var meshGradient2: some ShapeStyle {
+        MeshGradient(width: 3, height: 3, points: [
+            .init(x: 0, y: 0), .init(x: 0.5, y: 0), .init(x: 1, y: 0),
+            .init(x: 0, y: 0.5), .init(x: 0.5, y: 0.5), .init(x: 1, y: 0.5),
+            .init(x: 0, y: 1), .init(x: 0.5, y: 1), .init(x: 1, y: 1),
+        ], colors: [
+            darkPurple, darkPurple, light.mix(with: lightPurple, by: 0.5),
+            darkPurple, lightPurple.mix(with: light, by: 0.3), darkPurple,
+            light.mix(with: darkPurple, by: 0.5), lightPurple, light.mix(with: darkPurple, by: 0.5)
+        ])
+//        .shadow(.inner(color: .white.opacity(0.2), radius: 15, x: 0, y: -5))
+    }
+
+}
 
 struct Provider: TimelineProvider {
     func placeholder(in context: Context) -> SimpleEntry {
@@ -143,6 +153,9 @@ struct Provider: TimelineProvider {
         completion(timeline)
     }
 
+//    func relevances() async -> WidgetRelevances<Void> {
+//        // Generate a list containing the contexts this widget is relevant in.
+//    }
 }
 
 struct SimpleEntry: TimelineEntry {
@@ -154,5 +167,5 @@ struct SimpleEntry: TimelineEntry {
 #Preview(as: .systemSmall) {
     SleepWidget()
 } timeline: {
-    SimpleEntry(date: .now, emoji: "🤩")
+    SimpleEntry(date: .now, emoji: "😀")
 }
