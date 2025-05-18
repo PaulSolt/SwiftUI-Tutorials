@@ -1,0 +1,85 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "Get some %@!" : {
+      "comment" : "Get some sleep! - keep it short and motivational. We highlight the placeholder.",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Get some %@!"
+          }
+        },
+        "es-US" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¡Descansa, que necesitas %@!"
+          }
+        }
+      }
+    },
+    "Hello, world!" : {
+      "localizations" : {
+        "es-US" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¡Hola, mundo!"
+          }
+        }
+      }
+    },
+    "Less than %@ of %@ today." : {
+      "comment" : "Less than 4h of sleep today. Keep it short. The hours duration is localized programmatically as %1$@ and the word sleep is translated separately with %2$@. We highlight both placeholders.",
+      "localizations" : {
+        "es-US" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hoy %2$@ menos de %1$@ de sueño."
+          }
+        }
+      }
+    },
+    "rest.highlight" : {
+      "comment" : "A highlighted word from: \"Get some rest!\"",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "rest"
+          }
+        },
+        "es-US" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "sueño"
+          }
+        }
+      }
+    },
+    "See how much sleep you " : {
+
+    },
+    "Sleep Tracker" : {
+
+    },
+    "sleep.highlight" : {
+      "comment" : "A highlighted word from: \"Less than 4h of sleep today.\"",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "sleep"
+          }
+        },
+        "es-US" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "dormiste"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}
