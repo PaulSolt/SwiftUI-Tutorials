@@ -19,7 +19,7 @@
                BlueprintIdentifier = "BD84BC2E2DC925F90075CF0C"
                BuildableName = "SleepWidgetExtension.appex"
                BlueprintName = "SleepWidgetExtension"
-               ReferencedContainer = "container:SleepApp.xcodeproj">
+               ReferencedContainer = "container:SleepAppDemo.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -31,9 +31,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "BD84BC1C2DC925D40075CF0C"
-               BuildableName = "SleepApp.app"
-               BlueprintName = "SleepApp"
-               ReferencedContainer = "container:SleepApp.xcodeproj">
+               BuildableName = "SleepAppDemo.app"
+               BlueprintName = "SleepAppDemo"
+               ReferencedContainer = "container:SleepAppDemo.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -67,16 +67,16 @@
             BlueprintIdentifier = "BD84BC2E2DC925F90075CF0C"
             BuildableName = "SleepWidgetExtension.appex"
             BlueprintName = "SleepWidgetExtension"
-            ReferencedContainer = "container:SleepApp.xcodeproj">
+            ReferencedContainer = "container:SleepAppDemo.xcodeproj">
          </BuildableReference>
       </RemoteRunnable>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "BD84BC1C2DC925D40075CF0C"
-            BuildableName = "SleepApp.app"
-            BlueprintName = "SleepApp"
-            ReferencedContainer = "container:SleepApp.xcodeproj">
+            BuildableName = "SleepAppDemo.app"
+            BlueprintName = "SleepAppDemo"
+            ReferencedContainer = "container:SleepAppDemo.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <EnvironmentVariables>
@@ -110,9 +110,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "BD84BC1C2DC925D40075CF0C"
-            BuildableName = "SleepApp.app"
-            BlueprintName = "SleepApp"
-            ReferencedContainer = "container:SleepApp.xcodeproj">
+            BuildableName = "SleepAppDemo.app"
+            BlueprintName = "SleepAppDemo"
+            ReferencedContainer = "container:SleepAppDemo.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

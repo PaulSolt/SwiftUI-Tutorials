@@ -37,7 +37,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		BD84BC1D2DC925D40075CF0C /* SleepApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SleepApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BD84BC1D2DC925D40075CF0C /* SleepAppDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SleepAppDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD84BC2F2DC925F90075CF0C /* SleepWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = SleepWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD84BC312DC925F90075CF0C /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		BD84BC332DC925F90075CF0C /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
@@ -51,12 +51,12 @@
 			);
 			target = BD84BC2E2DC925F90075CF0C /* SleepWidgetExtension */;
 		};
-		BDF35B482DCFAF0A002D090C /* Exceptions for "SleepWidget" folder in "SleepApp" target */ = {
+		BDF35B482DCFAF0A002D090C /* Exceptions for "SleepWidget" folder in "SleepAppDemo" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Localizable.xcstrings,
 			);
-			target = BD84BC1C2DC925D40075CF0C /* SleepApp */;
+			target = BD84BC1C2DC925D40075CF0C /* SleepAppDemo */;
 		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
@@ -69,7 +69,7 @@
 		BD84BC352DC925F90075CF0C /* SleepWidget */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
-				BDF35B482DCFAF0A002D090C /* Exceptions for "SleepWidget" folder in "SleepApp" target */,
+				BDF35B482DCFAF0A002D090C /* Exceptions for "SleepWidget" folder in "SleepAppDemo" target */,
 				BD84BC402DC925FA0075CF0C /* Exceptions for "SleepWidget" folder in "SleepWidgetExtension" target */,
 			);
 			path = SleepWidget;
@@ -110,7 +110,7 @@
 		BD84BC1E2DC925D40075CF0C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				BD84BC1D2DC925D40075CF0C /* SleepApp.app */,
+				BD84BC1D2DC925D40075CF0C /* SleepAppDemo.app */,
 				BD84BC2F2DC925F90075CF0C /* SleepWidgetExtension.appex */,
 			);
 			name = Products;
@@ -128,9 +128,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		BD84BC1C2DC925D40075CF0C /* SleepApp */ = {
+		BD84BC1C2DC925D40075CF0C /* SleepAppDemo */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = BD84BC282DC925D50075CF0C /* Build configuration list for PBXNativeTarget "SleepApp" */;
+			buildConfigurationList = BD84BC282DC925D50075CF0C /* Build configuration list for PBXNativeTarget "SleepAppDemo" */;
 			buildPhases = (
 				BD84BC192DC925D40075CF0C /* Sources */,
 				BD84BC1A2DC925D40075CF0C /* Frameworks */,
@@ -145,11 +145,11 @@
 			fileSystemSynchronizedGroups = (
 				BD84BC1F2DC925D40075CF0C /* SleepApp */,
 			);
-			name = SleepApp;
+			name = SleepAppDemo;
 			packageProductDependencies = (
 			);
 			productName = SleepApp;
-			productReference = BD84BC1D2DC925D40075CF0C /* SleepApp.app */;
+			productReference = BD84BC1D2DC925D40075CF0C /* SleepAppDemo.app */;
 			productType = "com.apple.product-type.application";
 		};
 		BD84BC2E2DC925F90075CF0C /* SleepWidgetExtension */ = {
@@ -192,7 +192,7 @@
 					};
 				};
 			};
-			buildConfigurationList = BD84BC182DC925D40075CF0C /* Build configuration list for PBXProject "SleepApp" */;
+			buildConfigurationList = BD84BC182DC925D40075CF0C /* Build configuration list for PBXProject "SleepAppDemo" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -207,7 +207,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				BD84BC1C2DC925D40075CF0C /* SleepApp */,
+				BD84BC1C2DC925D40075CF0C /* SleepAppDemo */,
 				BD84BC2E2DC925F90075CF0C /* SleepWidgetExtension */,
 			);
 		};
@@ -492,7 +492,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		BD84BC182DC925D40075CF0C /* Build configuration list for PBXProject "SleepApp" */ = {
+		BD84BC182DC925D40075CF0C /* Build configuration list for PBXProject "SleepAppDemo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				BD84BC262DC925D50075CF0C /* Debug */,
@@ -501,7 +501,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		BD84BC282DC925D50075CF0C /* Build configuration list for PBXNativeTarget "SleepApp" */ = {
+		BD84BC282DC925D50075CF0C /* Build configuration list for PBXNativeTarget "SleepAppDemo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				BD84BC292DC925D50075CF0C /* Debug */,
