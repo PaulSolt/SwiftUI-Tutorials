@@ -51,11 +51,21 @@
 			);
 			target = BD84BC2E2DC925F90075CF0C /* SleepWidgetExtension */;
 		};
+		BDF35C522DDA1A2F002D090C /* Exceptions for "SleepApp" folder in "SleepWidgetExtension" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Resources/Localizable.xcstrings,
+			);
+			target = BD84BC2E2DC925F90075CF0C /* SleepWidgetExtension */;
+		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		BD84BC1F2DC925D40075CF0C /* SleepApp */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				BDF35C522DDA1A2F002D090C /* Exceptions for "SleepApp" folder in "SleepWidgetExtension" target */,
+			);
 			path = SleepApp;
 			sourceTree = "<group>";
 		};
@@ -190,6 +200,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"es-US",
 			);
 			mainGroup = BD84BC142DC925D40075CF0C;
 			minimizedProjectReferenceProxies = 1;
@@ -307,6 +318,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -364,6 +376,7 @@
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;

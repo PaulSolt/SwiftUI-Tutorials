@@ -40,7 +40,7 @@
       }
     },
     "rest.highlight" : {
-      "comment" : "A highlighted word from: \"Get some rest!\"",
+      "comment" : "A highlighted word (sleep) from: \"Less than 4h of sleep today.\"",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -63,7 +63,7 @@
 
     },
     "sleep.highlight" : {
-      "comment" : "A highlighted word from: \"Less than 4h of sleep today.\"",
+      "comment" : " A highlighted word (sleep) from: \"Less than 4h of sleep today.\"",
       "extractionState" : "extracted_with_value",
       "localizations" : {
         "en" : {

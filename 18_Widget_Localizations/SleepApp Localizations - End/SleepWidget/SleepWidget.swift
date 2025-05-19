@@ -21,15 +21,18 @@ class SleepViewModel {
     var motivationMessage: AttributedString = ""
 
     init(hours: Double) {
+        // Force a language on 2nd run of iOS Simulator (es = Spanish, en = English)
+//        UserDefaults.standard.set(["es"], forKey: "AppleLanguages") // Side-effect: changes language for simulator
+
         let sleepDuration = Measurement(value: hours, unit: UnitDuration.hours)
             .formatted(.measurement(width: .narrow))
-        let sleep = "sleep"
-        let rest = "rest"
+        let sleep = String(localized: "sleep.hightlight", defaultValue: "sleep", comment: "The word sleep to highlight in the expression: Less than 4h of sleep today")
+        let rest = String(localized: "rest.highlight", defaultValue: "rest")
 
 
         // Less than 6 hours
-        let message = "Less than \(sleepDuration) of \(sleep) today."
-        let motivation = "Get some \(rest)!"
+        let message = String(localized: "Less than \(sleepDuration) of \(sleep) today.")
+        let motivation = String(localized: "Get some \(rest)!")
 
         // >= 6 hours and < 9 hours
 
@@ -73,6 +76,7 @@ struct SleepWidgetEntryView : View {
         .foregroundStyle(.secondary)
         .colorScheme(.dark)
         .font(.system(size: 18, weight: .bold))
+        .minimumScaleFactor(0.8)
     }
 }
 
@@ -163,9 +167,17 @@ struct SimpleEntry: TimelineEntry {
     let emoji: String
 }
 
+// TODO: Submit a Feedback request for .environment locale for Widgets
+#Preview("English", as: .systemSmall) {
+    UserDefaults.standard.set(["en"], forKey: "AppleLanguages")
+    return SleepWidget()
+} timeline: {
+    SimpleEntry(date: .now, emoji: "😀")
+}
 
-#Preview(as: .systemSmall) {
-    SleepWidget()
+#Preview("Spanish", as: .systemSmall) {
+    UserDefaults.standard.set(["es"], forKey: "AppleLanguages")
+    return SleepWidget()
 } timeline: {
     SimpleEntry(date: .now, emoji: "😀")
 }
