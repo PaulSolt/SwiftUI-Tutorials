@@ -1,0 +1,86 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "Get some %@!" : {
+      "comment" : " Get some sleep! - keep it short and motivational. We highlight the placeholder using color.",
+      "localizations" : {
+        "es-US" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¡Descansa, que necesitas %@!"
+          }
+        }
+      }
+    },
+    "Hello, world!" : {
+      "localizations" : {
+        "es-US" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¡Hola, mundo!"
+          }
+        }
+      }
+    },
+    "Less than %@ of %@ today." : {
+      "comment" : "Less than 4h of sleep today. Keep it short. The hours duration is localized programmatically as %1$@ and the word sleep is translated separately with %2$@. We highlight both placeholders – you can highlight a different word that makes sense using the placeholder.\n",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Less than %1$@ of %2$@ today."
+          }
+        },
+        "es-US" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hoy %2$@ menos de %1$@ de sueño."
+          }
+        }
+      }
+    },
+    "My Widget" : {
+      "shouldTranslate" : false
+    },
+    "rest.highlight" : {
+      "comment" : "A highlighted word from: \"Get some rest!\"",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "rest"
+          }
+        },
+        "es-US" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "sueño"
+          }
+        }
+      }
+    },
+    "sleep.hightlight" : {
+      "comment" : "The word sleep to highlight in the expression: Less than 4h of sleep today",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "sleep"
+          }
+        },
+        "es-US" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "dormiste"
+          }
+        }
+      }
+    },
+    "This is an example widget." : {
+
+    }
+  },
+  "version" : "1.0"
+}

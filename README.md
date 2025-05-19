@@ -17,3 +17,6 @@ Paul Solt • Paul@SuperEasyApps.com
 13. [CustomSelector - Multiline Horizontal Segmented Control](13_CustomSelector/README.md)
 14. [How to Use Text and fixedSize](14_Text_fixedSize/README.md)
 15. [How to use Padding in SwiftUI](15_Padding/README.md)
+16. [Objective-C Swift Package Manager (SPM)](16_Swift_Package_Manager/README.md)
+17. [Sleep Tracker Widget - SwiftUI Design Challenge](17_SleepWidget/README.md)
+18. [Localizations - Sleep Tracker Widget + RocketSim](18_Widget_Localizations/README.md)
