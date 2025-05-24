@@ -21,8 +21,9 @@ class SleepViewModel {
     var motivationMessage: AttributedString = ""
 
     init(hours: Double) {
-        // Force a language on 2nd run of iOS Simulator (es = Spanish, en = English)
-//        UserDefaults.standard.set(["es"], forKey: "AppleLanguages") // Side-effect: changes language for simulator
+        // Force a language on 2nd run of iOS Simulator (es = Spanish, en = English, nil = use system language)
+        // UserDefaults.standard.set(["es"], forKey: "AppleLanguages") // Side-effect: changes language for iOS Simulator
+        // UserDefaults.standard.set(nil, forKey: "AppleLanguages") // Reset to default languages on Simulator (So that system language works)
 
         let sleepDuration = Measurement(value: hours, unit: UnitDuration.hours)
             .formatted(.measurement(width: .narrow))
