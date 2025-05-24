@@ -2,12 +2,9 @@
 
 This demo project shows how to adapt a project for localizations.
 
-You will learn how to use String(localized:) and the new String Catalog.
+You will learn how to use `String(localized:)` and the new String Catalog that updates on Build.
 
-I'll show you how to test your localizations for iOS using [RocketSim](https://www.rocketsim.app/) and for iOS Widget Previews.
-
-* Download the code: https://super-easy-apps.kit.com/swiftui
-* RocketSim: https://www.rocketsim.app/
+* Download RocketSim: https://www.rocketsim.app/
 
 ## Create a String Catalog
 
@@ -57,21 +54,21 @@ init(hours: Double) {
 
 When you have data calculations, the translations are more complex.
 
-English: Less than %@ of %@ today.
-Comment: Less than 4h of sleep today. Keep it short. The hours duration is localized programmatically as %1$@ and the word sleep is translated separately with %2$@. We highlight both placeholders.
-Spanish: Hoy %2$@ menos de %1$@ de sueño.
-
-English: Get some %@!
-Spanish: ¡Descansa, que necesitas %@!
-Comment: Get some sleep! - keep it short and motivational. We highlight the placeholder.
-
-English: rest.highlight
-Spanish: sueño
-Comment: A highlighted word (rest) from: "Get some rest!"
-
-English: sleep.highlight
-Spanish: dormiste A highlighted word (sleep) from: "Less than 4h of sleep today."
-Comment: A highlighted word (sleep) from: "Less than 4h of sleep today."
+	English: Less than %@ of %@ today.
+	Comment: Less than 4h of sleep today. Keep it short. The hours duration is localized programmatically as %1$@ and the word sleep is translated separately with %2$@. We highlight both placeholders.
+	Spanish: Hoy %2$@ menos de %1$@ de sueño.
+	
+	English: Get some %@!
+	Spanish: ¡Descansa, que necesitas %@!
+	Comment: Get some sleep! - keep it short and motivational. We highlight the placeholder.
+	
+	English: rest.highlight
+	Spanish: sueño
+	Comment: A highlighted word (rest) from: "Get some rest!"
+	
+	English: sleep.highlight
+	Spanish: dormiste A highlighted word (sleep) from: "Less than 4h of sleep today."
+	Comment: A highlighted word (sleep) from: "Less than 4h of sleep today."
 
 ## Unique Strings
 
