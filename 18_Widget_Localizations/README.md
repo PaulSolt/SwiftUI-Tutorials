@@ -1,5 +1,7 @@
 # Localizations for iOS and iOS Widgets - SwiftUI
 
+[![SwiftUI Localization](http://img.youtube.com/vi/1piGNwdx9mA/0.jpg)](http://www.youtube.com/watch?v=1piGNwdx9mA "SwiftUI Localization")
+
 This demo project shows how to adapt a project for localizations.
 
 You will learn how to use `String(localized:)` and the new String Catalog that updates on Build.
