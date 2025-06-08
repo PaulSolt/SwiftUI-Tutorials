@@ -18,9 +18,9 @@ Paul Solt • Paul@SuperEasyApps.com
 14. [How to Use Text and fixedSize](14_Text_fixedSize/README.md)
 15. [How to use Padding in SwiftUI](15_Padding/README.md)
 16. [Objective-C Swift Package Manager (SPM)](16_Swift_Package_Manager/README.md)
-17. [Sleep Tracker Widget - SwiftUI Design Challenge](17_SleepWidget/README.md)
-18. [Localizations - Sleep Tracker Widget + RocketSim](18_Widget_Localizations/README.md)
+17. [Sleep Tracker Widget - SwiftUI Design Challenge](17_SleepWidget/README.md) [(👉 YouTube)](https://www.youtube.com/watch?v=B2Wswm8v6UQ)
+	<img src="17_SleepWidget/SleepWidgetHero.png" alt="Swift Charts - Budget Widget" style="width: 250px;"/>
+18. [Localizations - Sleep Tracker Widget + RocketSim](18_Widget_Localizations/README.md)  [(👉 YouTube)](https://youtu.be/1piGNwdx9mA?si=ULpW5g5GCg5F4Nar)
 19. [Swift Charts - Budget Widget](19_ChartsWidget) [(👉YouTube)](https://youtu.be/xgVSmJH2l6o)
-
 	<img src="19_ChartsWidget/SwiftCharts-Hero.png" alt="Swift Charts - Budget Widget" style="width: 250px;"/>
 
