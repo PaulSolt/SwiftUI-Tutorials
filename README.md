@@ -21,3 +21,6 @@ Paul Solt • Paul@SuperEasyApps.com
 17. [Sleep Tracker Widget - SwiftUI Design Challenge](17_SleepWidget/README.md)
 18. [Localizations - Sleep Tracker Widget + RocketSim](18_Widget_Localizations/README.md)
 19. [Swift Charts - Budget Widget](19_ChartsWidget) [(👉YouTube)](https://youtu.be/xgVSmJH2l6o)
+
+	<img src="19_ChartsWidget/SwiftCharts-Hero.png" alt="Swift Charts - Budget Widget" style="width: 250px;"/>
+
