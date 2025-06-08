@@ -159,6 +159,7 @@ struct ChartsWidgetEntryView : View {
                                 .foregroundStyle(Color.primary)
                         }
                     }
+
                 }
             }
             .chartYScale(domain: [0, viewModel.dailyLimit])
