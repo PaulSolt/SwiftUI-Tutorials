@@ -4,7 +4,7 @@ Jumpstart Swift Charts and SwiftUI in this 45-minute design challenge. Learn how
 
 [Watch the Swift Charts - Demo Video](https://youtu.be/xgVSmJH2l6o)
 
-![Swift Charts - Budget Widget](SwiftCharts-Hero.png)
+<img src="SwiftCharts-Hero.png" alt="Swift Charts - Budget Widget" style="width: 250px;"/>
 
 Learn how to:
 
